@@ -64,6 +64,7 @@ function loopPictures() {
             heroStrap1ID.classList.remove("sl3a");
             heroStrap2ID.classList.remove("sl3b");
             heroStrap1ID.classList.add("sl4a");
+            break;
         case 7:
             heroStrap2ID.classList.add("sl4b");
             break;

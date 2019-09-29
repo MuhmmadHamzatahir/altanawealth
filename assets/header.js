@@ -5,7 +5,10 @@ var strap2ID;
 
 window.addEventListener('DOMContentLoaded', function() {
   document.getElementsByTagName("BODY")[0].classList.add("landing-page");
-  window.onscroll = function() {toggleStickyHeader()};
+  window.addEventListener("scroll", function() {toggleStickyHeader()});
+  window.addEventListener("unload", function() {
+    window.removeEventListener("scroll", function() {toggleStickyHeader()});
+  })
 });
   // When the user scrolls the page, execute toggleStickyHeader 
 

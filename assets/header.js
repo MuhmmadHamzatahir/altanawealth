@@ -1,5 +1,13 @@
+var bodyID;
+var imgID;
+var strap2ID;
+
+
+window.addEventListener('DOMContentLoaded', function() {
+  document.getElementsByTagName("BODY")[0].classList.add("landing-page");
+  window.onscroll = function() {toggleStickyHeader()};
+});
   // When the user scrolls the page, execute toggleStickyHeader 
-window.onscroll = function() {toggleStickyHeader()};
 
 
 // Add the sticky class to the header when you reach its scroll position. Remove "sticky" when you leave the scroll position

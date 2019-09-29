@@ -1,17 +1,14 @@
 var loop = 0;
 var bodyID;
-var imgID;
 var strap2ID;
 
 
 window.addEventListener('DOMContentLoaded', function() {
     bodyID= document.getElementsByTagName("BODY")[0];
     bodyID.classList.add("hero01");
-    imgID = document.getElementsByClassName("Parallax-host-outer")[0].getElementsByClassName("Parallax-item")[0].getElementsByTagName("IMG")[0];
-    imgID.classList.add("back-image");
     strap2ID = document.getElementById("hero-strap2");
     loopStyling();
-    setInterval(loopStyling, 4000);
+    setInterval(loopStyling, 6000);
 });
 function loopStyling() {
 

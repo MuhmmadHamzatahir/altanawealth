@@ -1,14 +1,5 @@
   var pagesModifiedHeader = [{
         pageName: "home"
-    },
-    {
-        pageName: "philosophy"
-    },
-    {
-        pageName: "philanthropy"
-    },
-    {
-        pageName: "infrastructure"
     }
 ];
 function addModifiedHeaderIfRequired() {

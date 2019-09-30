@@ -1,3 +1,4 @@
+/*
 var pageToClassMap = [
 {pageName: 'adas-overview', fundClass: 'adas'},
 {pageName: 'adas-fund-information', fundClass: 'adas'},
@@ -6,12 +7,15 @@ var pageToClassMap = [
 
 {pageName: 'all-funds', fundClass: ''}
 ];
-
+*/
 function addFundClassIfRequired() {
   // get name of page
   var thisPage = window.location.pathname.split('/').slice(-1)[0];
 
+
+
   // test if page exists in pageToClassMap array
+  // pageToClassMap defined in codeInjections
   var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
   if (result != undefined) {

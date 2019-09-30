@@ -10,9 +10,9 @@ function addFundClassIfRequired() {
     var thisPage = window.location.pathname.split('/').slice(-1)[0];
 
     // test if page exists in pageToClassMap array
-    var result = pageToClassMap.filter(x => x.pageName === thisPage);
+    var result = pageToClassMap.filter(x => x.pageName === thisPage)[0];
 
-    if (result.fundClass.length != 0) {
+    if result.fundClass.length != 0 {
       document.getElementsByTagName("BODY")[0].classList.add(result.fundClass);
     } else {
     }

@@ -16,6 +16,4 @@ function addFundClassIfRequired() {
     } else {
     }
 };
-window.addEventListener('DOMContentLoaded', function() {
-  addModifiedHeaderIfRequired()
-});
+window.addEventListener('DOMContentLoaded', addFundClassIfRequired);

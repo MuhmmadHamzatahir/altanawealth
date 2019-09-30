@@ -7,7 +7,9 @@ window.addEventListener('DOMContentLoaded', function() {
     bodyID= document.getElementsByTagName("BODY")[0];
     document.getElementsByClassName("Parallax-host-outer")[0].getElementsByClassName("Parallax-item")[0].getElementsByTagName("IMG")[0].classList.add("back-image");
 
-    bodyID.classList.add(["landing-page", "hero01"]);
+    bodyID.classList.add("landing-page");
+    bodyID.classList.add("hero01");
+
     strap2ID = document.getElementById("hero-strap2");
 
     loopStyling();

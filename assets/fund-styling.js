@@ -1,8 +1,9 @@
-var pageToClassMap = {};
-pageToClassMap['adas-overview'] = {fundClass: 'adas'};
-pageToClassMap['adas-fund-information'] = {fundClass: 'adas'};
-pageToClassMap['acbf-overview'] = {fundClass: 'acbf'};
-pageToClassMap['acbf-fund-information'] = {fundClass: 'acbf'};
+var pageToClassMap = [
+{pageName: 'adas-overview', fundClass: 'adas'},
+{pageName: 'adas-fund-information', fundClass: 'adas'},
+{pageName: 'acbf-overview', fundClass: 'acbf'},
+{pageName: 'acbf-fund-information', fundClass: 'acbf'}
+];
 
 function addFundClassIfRequired() {
     // get name of page
@@ -12,8 +13,8 @@ function addFundClassIfRequired() {
     var result = pageToClassMap.filter(x => x.pageName === thisPage).length;
 
     if (result != 0) {
-      document.getElementsByTagName("BODY")[0].classList.add(pageToClassMap[thisPage]);
+      document.getElementsByTagName("BODY")[0].classList.add({thisPage]);
     } else {
     }
-};
+},
 window.addEventListener('DOMContentLoaded', addFundClassIfRequired);

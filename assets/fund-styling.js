@@ -2,7 +2,9 @@ var pageToClassMap = [
 {pageName: 'adas-overview', fundClass: 'adas'},
 {pageName: 'adas-fund-information', fundClass: 'adas'},
 {pageName: 'acbf-overview', fundClass: 'acbf'},
-{pageName: 'acbf-fund-information', fundClass: 'acbf'}
+{pageName: 'acbf-fund-information', fundClass: 'acbf'},
+
+{pageName: 'all-funds', fundClass: ''}
 ];
 
 function addFundClassIfRequired() {
@@ -13,6 +15,7 @@ function addFundClassIfRequired() {
     var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
     if (result != undefined) {
+      document.getElementsByTagName("BODY")[0].classList.add(result[0]."page-with-fund-headers");
       document.getElementsByTagName("BODY")[0].classList.add(result[0].fundClass);
     }
 };

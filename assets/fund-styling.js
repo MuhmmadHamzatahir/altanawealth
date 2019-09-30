@@ -1,0 +1,21 @@
+var pageToClassMap = {};
+pageToClassMap['adas-overview'] = {fundClass: 'adas'};
+pageToClassMap['adas-fund-information'] = {fundClass: 'adas'};
+pageToClassMap['acbf-overview'] = {fundClass: 'acbf'};
+pageToClassMap['acbf-fund-information'] = {fundClass: 'acbf'};
+
+function addFundClassIfRequired() {
+    // get name of page
+    var thisPage = window.location.pathname.split('/').slice(-1)[0];
+
+    // test if page exists in pageToClassMap array
+    var result = pageToClassMap.filter(x => x.pageName === thisPage).length;
+
+    if (result != 0) {
+      document.getElementsByTagName("BODY")[0].classList.add(pageToClassMap[thisPage]);
+    } else {
+    }
+};
+window.addEventListener('DOMContentLoaded', function() {
+  addModifiedHeaderIfRequired()
+});

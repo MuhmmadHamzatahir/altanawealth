@@ -13,8 +13,8 @@ function addFundClassIfRequired() {
     var result = pageToClassMap.filter(x => x.pageName === thisPage).length;
 
     if (result != 0) {
-      document.getElementsByTagName("BODY")[0].classList.add({thisPage]);
+      document.getElementsByTagName("BODY")[0].classList.add(pageToClassMap[thisPage]);
     } else {
     }
-},
+};
 window.addEventListener('DOMContentLoaded', addFundClassIfRequired);

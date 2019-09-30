@@ -12,7 +12,7 @@ function addFundClassIfRequired() {
     // test if page exists in pageToClassMap array
     var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
-    if (!result) {
+    if (result != undefined) {
         if (result[0].fundClass.length != 0) {
       document.getElementsByTagName("BODY")[0].classList.add(result[0].fundClass);
     }

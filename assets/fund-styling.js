@@ -10,7 +10,7 @@ function addFundClassIfRequired() {
     var thisPage = window.location.pathname.split('/').slice(-1)[0];
 
     // test if page exists in pageToClassMap array
-    var result = pageToClassMap.filter(x => x.pageName === thisPage).length;
+    var result = pageToClassMap.filter({ 'age': thisPage});
 
     if (result != 0) {
       document.getElementsByTagName("BODY")[0].classList.add(pageToClassMap[thisPage]);

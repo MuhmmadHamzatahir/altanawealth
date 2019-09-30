@@ -8,15 +8,17 @@ var pageToClassMap = [
 ];
 
 function addFundClassIfRequired() {
-    // get name of page
-    var thisPage = window.location.pathname.split('/').slice(-1)[0];
+  // get name of page
+  var thisPage = window.location.pathname.split('/').slice(-1)[0];
 
-    // test if page exists in pageToClassMap array
-    var result = pageToClassMap.filter(x => x.pageName === thisPage);
+  // test if page exists in pageToClassMap array
+  var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
-    if (result != undefined) {
-      document.getElementsByTagName("BODY")[0].classList.add("page-with-fund-headers");
+  if (result != undefined) {
+    document.getElementsByTagName("BODY")[0].classList.add("page-with-fund-headers");
+    if (result[0].fundClass != '') {
       document.getElementsByTagName("BODY")[0].classList.add(result[0].fundClass);
     }
+  }
 };
 window.addEventListener('DOMContentLoaded', addFundClassIfRequired);

@@ -15,7 +15,7 @@ function addFundClassIfRequired() {
     var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
     if (result != undefined) {
-      document.getElementsByTagName("BODY")[0].classList.add(result[0]."page-with-fund-headers");
+      document.getElementsByTagName("BODY")[0].classList.add("page-with-fund-headers");
       document.getElementsByTagName("BODY")[0].classList.add(result[0].fundClass);
     }
 };

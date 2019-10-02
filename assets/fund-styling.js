@@ -18,7 +18,7 @@ function addFundClassIfRequired() {
   // pageToClassMap defined in codeInjections
   var result = pageToClassMap.filter(x => x.pageName === thisPage);
 
-  if (result != undefined) {
+  if (result != undefined && != "") {
     document.getElementsByTagName("BODY")[0].classList.add("page-with-fund-headers");
     if (result[0].fundClass != '') {
       document.getElementsByTagName("BODY")[0].classList.add(result[0].fundClass);

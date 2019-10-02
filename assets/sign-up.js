@@ -1,8 +1,8 @@
 window.addEventListener('DOMContentLoaded', function() {
     signUpCloseButtonClick();
     document.getElementById('sign-up-close').addEventListener("click", signUpCloseButtonClick);
-    document.getElementById('sign-up').addEventListener("click", signUpButtonClick);
-
+    var signUpButton = document.getElementById('sign-up');
+    if (signUpButton != undefined) {signUpButton.addEventListener("click", signUpButtonClick)};
 });
 
 function signUpButtonClick(){

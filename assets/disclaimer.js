@@ -1,20 +1,92 @@
+var pagesRequiringDisclaimerAcceptance = [{
+    pageName: "adas-fund-information"
+}, {
+    pageName: "acbf-fund-information"
+}];
+
+var localStorageExists = false;
+var pageToShow = new URL('/');
+
 window.addEventListener('DOMContentLoaded', function() {
 
-    disclaimerCloseClick();
+    localStorageExists = (typeof(Storage) !== "undefined");
 
-    document.getElementById('disclaimer-close').addEventListener("click", disclaimerCloseClick);
+    closeDisclaimerPopUp();
 
-    var disclaimerButton = document.getElementById('disclaimer');
+    document.getElementById('disclaimer-accept').addEventListener("click", disclaimerAccepted);
+    document.getElementById('disclaimer-decline').addEventListener("click", disclaimerDeclined);
+    document.getElementById('disclaimer-close').addEventListener("click", disclaimerDeclined);
 
-    if (disclaimerButton != undefined) {disclaimerButton.addEventListener("click", disclaimerClick)};
+    testDisclaimerRequired();
 });
 
-function disclaimerClick(){
+function openDisclaimerPopUp() {
     document.getElementById('disclaimer-page').style.display = 'block'; // show
-    document.getElementById('cover').style.display = 'block'; 
+    document.getElementById('cover').style.display = 'block';
 }
 
-function disclaimerCloseClick(){
+function closeDisclaimerPopUp() {
     document.getElementById('disclaimer-page').style.display = 'none';
-    document.getElementById('cover').style.display = 'none'; 
+    document.getElementById('cover').style.display = 'none';
 }
+
+
+function disclaimerAccepted() {
+    alert('Accepted');
+    if (localStorageExists) {
+        localStorage.acceptedDisclaimer = true;
+        localStorage.acceptedDateTimeUTC = new Date();
+    }
+
+    closeDisclaimerPopUp();
+}
+
+function disclaimerDeclined() {
+    alert('Declined');
+    if (localStorageExists) {
+        localStorage.acceptedDisclaimer = false;
+        localStorage.acceptedDateTimeUTC = new Date();
+    }
+    closeDisclaimerPopUp();
+}
+
+
+function testDisclaimerRequired() {
+
+    // get name of page
+    var thisPage = window.location.pathname.split('/').slice(-1)[0];
+    console.log("this page <" + thisPage + ">");
+    console.log(localStorage);
+
+    // test if page exists in pagesRequiringDisclaimerAcceptance array
+    var result = pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;
+
+    if (result != 0) {
+        // debug only
+        if (1 === 1) {
+            alert("Page requires disclaimer to be accepted");
+            if (localStorageExists && confirm("Clear local Storage?")) {
+                localStorage.clear();
+            }
+        }
+        // debug only
+        if (localStorageExists) { // IF Local storage exists, may not on some browsers
+            if (localStorage.acceptedDisclaimer) { // acceptedDisclaimer exists
+            } // end acceptedDisclaimer exists
+            else { // acceptedDisclaimer NOT exists
+                localStorage.acceptedDisclaimer = false;
+                localStorage.acceptedDateTimeUTC = dateTimeAccepted;
+            } // end acceptedDisclaimer NOT exists
+
+            if (localStorage.acceptedDisclaimer === 'false') {
+                openDisclaimerPopUp();
+            }
+        } // end Local storage exists
+        else { // Local storage NOT exists so have to ask every time since have no ability to store
+            // can add session permanence via global JS variable
+            openDisclaimerPopUp();
+        } // end Local storage NOT exists
+    } else {
+        // alert("Page DOES NOT requires disclaimer to be accepted");
+    }
+};

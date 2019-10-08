@@ -5,7 +5,6 @@ var pagesRequiringDisclaimerAcceptance = [{
 }];
 
 var localStorageExists = false;
-var pageToShow = new URL('/');
 
 window.addEventListener('DOMContentLoaded', function() {
 

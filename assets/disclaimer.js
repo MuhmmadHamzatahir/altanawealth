@@ -74,7 +74,7 @@ function testDisclaimerRequired() {
             } // end acceptedDisclaimer exists
             else { // acceptedDisclaimer NOT exists
                 localStorage.acceptedDisclaimer = false;
-                localStorage.acceptedDateTimeUTC = dateTimeAccepted;
+                localStorage.acceptedDateTimeUTC = new Date();
             } // end acceptedDisclaimer NOT exists
 
             if (localStorage.acceptedDisclaimer === 'false') {

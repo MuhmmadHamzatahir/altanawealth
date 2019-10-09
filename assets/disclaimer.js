@@ -31,7 +31,7 @@ function closeDisclaimerPopUp() {
 
 
 function disclaimerAccepted() {
-    alert('Accepted');
+    console.log('Accepted');
     if (localStorageExists) {
         localStorage.acceptedDisclaimer = true;
         localStorage.acceptedDateTimeUTC = new Date();
@@ -41,7 +41,7 @@ function disclaimerAccepted() {
 }
 
 function disclaimerDeclined() {
-    alert('Declined');
+    console.log('Declined');
     if (localStorageExists) {
         localStorage.acceptedDisclaimer = false;
         localStorage.acceptedDateTimeUTC = new Date();
@@ -63,10 +63,10 @@ function testDisclaimerRequired() {
     if (result != 0) {
         // debug only
         if (1 === 1) {
-            alert("Page requires disclaimer to be accepted");
-            if (localStorageExists && confirm("Clear local Storage?")) {
+            console.log("Page requires disclaimer to be accepted");
+//            if (localStorageExists && confirm("Clear local Storage?")) {
                 localStorage.clear();
-            }
+//            }
         }
         // debug only
         if (localStorageExists) { // IF Local storage exists, may not on some browsers
@@ -86,6 +86,6 @@ function testDisclaimerRequired() {
             openDisclaimerPopUp();
         } // end Local storage NOT exists
     } else {
-        // alert("Page DOES NOT requires disclaimer to be accepted");
+        // console.log("Page DOES NOT requires disclaimer to be accepted");
     }
 };

@@ -1,5 +1,8 @@
   var pagesModifiedHeader = [{
         pageName: "home"
+    },
+    {
+        pageName: "home-new"
     }
 ];
 function addModifiedHeaderIfRequired() {

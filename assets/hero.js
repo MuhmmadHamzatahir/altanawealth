@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', function() {
     strap2ID = document.getElementById("hero-strap2");
 
     loopStyling();
-    setInterval(loopStyling, 6000);
+    setInterval(loopStyling, 10000);
 });
 function loopStyling() {
 

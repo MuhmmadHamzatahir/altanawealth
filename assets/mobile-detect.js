@@ -25,11 +25,8 @@ function detectmob() {
         navigator.userAgent.match(/BlackBerry/i) ||
         navigator.userAgent.match(/Windows Phone/i)
     ) {
-        alert('mobile device');
         return true;
     } else {
-        alert('not mobile device');
-        console.log('running on non-mobile <' + navigator.userAgent + '>');
         return false;
     }
 }

@@ -32,8 +32,11 @@ function shareByFacebook() {
 };
 
 function shareByLinkedin() {
-    var thisPage = window.location.pathname;
-    alert('Hi <' + thisPage + '>');
+    var url = window.location;
+    var text = "A page of interest on Altana Wealth website";
+
+    window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
+
 };
 function followByLinkedin() {
     window.open(encodeURI("https://www.linkedin.com/company/altana-wealth/about/"), '_blank');

@@ -34,6 +34,7 @@ function shareByFacebook() {
 function shareByLinkedin() {
     var url = window.location;
     var text = "A page of interest on Altana Wealth website";
+    console.log(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
 
     window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
 

@@ -34,8 +34,6 @@ function shareByFacebook() {
 function shareByLinkedin() {
     var url = window.location;
     var text = "A page of interest on Altana Wealth website";
-    console.log(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
-
     window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
 
 };
@@ -60,8 +58,13 @@ function shareByTwitter() {
 };
 
 function shareByWhatsapp() {
-    var thisPage = window.location.pathname;
-    alert('Hi <' + thisPage + '>');
+    var url = window.location;
+    var shareText = "A page of interest on Altana Wealth website";
+
+    window.open(encodeURI('whatsapp://send?text=' + shareText + ' ' + url + ' data-action="share/whatsapp/share"'));
+
+    console.log('!!' + encodeURI('whatsapp://send?text=' + shareText + ' ' + url + ' data-action="share/whatsapp/share"!!'));
+
 };
 
 function shareByShare() {

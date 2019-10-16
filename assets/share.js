@@ -61,10 +61,13 @@ function shareByWhatsapp() {
     var url = window.location;
     var shareText = "A page of interest on Altana Wealth website";
 
-    window.open(encodeURI('whatsapp://send?text=' + shareText + ' ' + url + ' data-action="share/whatsapp/share"'));
+    var a = document.createElement("a");
+    var href = encodeURI('whatsapp://send?text=' + shareText + ' ' + url);
 
-    console.log('!!' + encodeURI('whatsapp://send?text=' + shareText + ' ' + url + ' data-action="share/whatsapp/share"!!'));
-
+    a.href = href;
+    a.setAttribute("data-action","share/whatsapp/share");
+    a.setAttribute("target", "_blank"); 
+    a.click();
 };
 
 function shareByShare() {

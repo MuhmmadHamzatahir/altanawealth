@@ -9,6 +9,10 @@ window.addEventListener('DOMContentLoaded', function() {
     document.getElementById('share-twitter').addEventListener("click", shareByTwitter);
     document.getElementById('share-whatsapp').addEventListener("click", shareByWhatsapp);
     document.getElementById('share-share').addEventListener("click", shareByShare);
+    document.getElementById('follow-email').addEventListener("click", followByEmail);
+    document.getElementById('follow-linkedin').addEventListener("click", followByLinkedin);
+    document.getElementById('follow-teamtailor').addEventListener("click", followByTeamtailor);
+
 });
 
 function shareByEmail() {
@@ -17,7 +21,9 @@ function shareByEmail() {
 
     mail.href = href;
     mail.click();
-
+};
+function followByEmail() {
+  signUpButtonClick()
 };
 
 function shareByFacebook() {
@@ -29,6 +35,13 @@ function shareByLinkedin() {
     var thisPage = window.location.pathname;
     alert('Hi <' + thisPage + '>');
 };
+function followByLinkedin() {
+    window.open(encodeURI("https://www.linkedin.com/company/altana-wealth/about/"), '_blank');
+};
+function followByTeamtailor() {
+    window.open(encodeURI("https://altanawealth.teamtailor.com"), '_blank');
+};
+
 
 function shareBymessenger() {
     var thisPage = window.location.pathname;

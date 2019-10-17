@@ -98,7 +98,7 @@ function FBShare(method) {
 
 
 function shareByTwitter() {
-    var url = .href;
+    var url = window.location.href;
     var hashtags = "altanawealth,altana";
     var text = "A page of interest on Altana Wealth website";
     window.open(encodeURI('https://twitter.com/intent/tweet?text=' + text + '\&url=' + url + '\&hashtags=' + hashtags), '_blank', 'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=550,height=250')

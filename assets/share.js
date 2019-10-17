@@ -35,10 +35,11 @@ function shareByFacebook() {
     href = href + "&display=popup";
     href = href + "&link=" + window.location;
 
+/*
     href = href + "&name=" + "Shared article from Altana Wealth";
     href = href + "&caption=" + "Altana Caption";
     href = href + "&description=" + "Altana Description";
-
+*/
     hrefClick(href);
 };
 

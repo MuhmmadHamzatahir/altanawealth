@@ -29,18 +29,12 @@ function followByEmail() {
 function shareByFacebook() {
 // https://developers.facebook.com/docs/sharing/reference/feed-dialog/
 
-    var href="https://www.facebook.com/dialog/feed"
+    var href="http://www.facebook.com/dialog/feed"
     href = href + "?app_id=972752376410619";
-    href = href + "&redirect_uri=" + window.location;
-    href = href + "&display=popup";
-//    href = href + "&link=" + window.location;
-    href = href + "&href=" + window.location;
+    href = href + "&amp;redirect_uri=" + encodeURI(window.location);
+    href = href + "&amp;display=popup";
+    href = href + "&amp;link=" + encodeURI(window.location);
 
-/*
-    href = href + "&name=" + "Shared article from Altana Wealth";
-    href = href + "&caption=" + "Altana Caption";
-    href = href + "&description=" + "Altana Description";
-*/
     hrefClick(href);
 };
 

@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', function() {
 function shareByEmail() {
     var href = "mailto:?subject=";
     href = href + "Shared from Altana Wealth";
-    href = href + "\&body=Sharing content from Altana Wealth " + window.location;
+    href = href + "\&body=Sharing content from Altana Wealth " + window.location.href;
     hrefClick(href);
 };
 function followByEmail() {
@@ -43,7 +43,7 @@ function shareByFacebook() {
 };
 
 function shareByLinkedin() {
-    var url = window.location;
+    var url = window.location.href;
     var text = "A page of interest on Altana Wealth website";
     window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'), '_blank');
 };
@@ -57,7 +57,7 @@ function followByTeamtailor() {
 
 
 function shareByMessengerMobile() {
-    var url = window.location;
+    var url = window.location.href;
     var href = "fb-messenger://share";
     href = href + "?app_id=972752376410619";
     href = href + "&amp;redirect_uri=" + url;
@@ -89,7 +89,7 @@ function shareByMessengerDesktop() {
 function FBShare(method) {
     FB.ui({
   method: method,
-  href: window.location,
+  href: window.location.href
 }, function(response){});
 
 }
@@ -98,14 +98,14 @@ function FBShare(method) {
 
 
 function shareByTwitter() {
-    var url = window.location;
+    var url = .href;
     var hashtags = "altanawealth,altana";
     var text = "A page of interest on Altana Wealth website";
     window.open(encodeURI('https://twitter.com/intent/tweet?text=' + text + '\&url=' + url + '\&hashtags=' + hashtags), '_blank', 'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=550,height=250')
 };
 
 function shareByWhatsapp() {
-    var url = window.location;
+    var url = window.location.href;
     var shareText = "A page of interest on Altana Wealth website";
     var attributes = [
         {name: "data-action",   value: "share/whatsapp/share"},
@@ -120,7 +120,7 @@ function shareByShare() {
     var copyText = document.createElement("textarea");
     document.body.appendChild(copyText);
     //Be careful if you use texarea. setAttribute('value', value), which works with "input" does not work with "textarea". – Eduard
-    copyText.value = encodeURI(window.location.pathname);
+    copyText.value = encodeURI(window.location.href);
     copyText.select();
     document.execCommand("copy");
 
@@ -130,7 +130,7 @@ function shareByShare() {
     span = document.getElementsByClassName("close")[0];
 
     var a = document.getElementById("copy-text")
-    a.innerHTML =  window.location.pathname;
+    a.innerHTML =  window.location.href;
     a.href = copyText.value;
     modal.style.display = "block";
 

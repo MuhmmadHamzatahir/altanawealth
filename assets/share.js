@@ -28,7 +28,7 @@ function followByEmail() {
 
 function shareByFacebook() {
 // https://developers.facebook.com/docs/sharing/reference/feed-dialog/
-
+/*
     var href="http://www.facebook.com/dialog/feed"
     href = href + "?app_id=972752376410619";
     href = href + "&redirect_uri=" + encodeURI(window.location);
@@ -38,6 +38,8 @@ function shareByFacebook() {
     window.open (href, 
         '_blank', 
         'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=555,height=615');
+*/
+    FBShare('feed');
 };
 
 function shareByLinkedin() {
@@ -51,6 +53,7 @@ function followByLinkedin() {
 function followByTeamtailor() {
     window.open(encodeURI("https://altanawealth.teamtailor.com"), '_blank');
 };
+
 
 
 function shareByMessengerMobile() {
@@ -67,6 +70,7 @@ function shareByMessengerMobile() {
     hrefClick(href, attributes);
 };
 function shareByMessengerDesktop() {
+/*
     var href = "http://www.facebook.com/dialog/send";
     href = href + "?app_id=972752376410619";
     href = href + "&redirect_uri=" + encodeURI(window.location);
@@ -77,12 +81,18 @@ function shareByMessengerDesktop() {
     window.open (href, 
         '_blank', 
         'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=555,height=615');
-
-
-
+*/
+    FBShare('send');
 
 };
 
+function FBShare(method) {
+    FB.ui({
+  method: method,
+  href: window.location,
+}, function(response){});
+
+}
 
 
 
@@ -153,3 +163,4 @@ if (typeof attributes === 'undefined') { attributes =  []; }
     }
     a.click();
 }
+

@@ -39,7 +39,7 @@ function shareByFacebook() {
         '_blank', 
         'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=555,height=615');
 */
-    FBShare('feed');
+    FBShare('send');
 };
 
 function shareByLinkedin() {

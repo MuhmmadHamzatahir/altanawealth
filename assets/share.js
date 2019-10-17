@@ -31,9 +31,9 @@ function shareByFacebook() {
 
     var href="http://www.facebook.com/dialog/feed"
     href = href + "?app_id=972752376410619";
-    href = href + "&amp;redirect_uri=" + encodeURI(window.location);
-    href = href + "&amp;display=popup";
-    href = href + "&amp;link=" + encodeURI(window.location);
+    href = href + "&redirect_uri=" + encodeURI(window.location);
+    href = href + "&display=popup";
+    href = href + "&link=" + encodeURI(window.location);
 
     hrefClick(href);
 };

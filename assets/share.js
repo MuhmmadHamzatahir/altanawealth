@@ -45,8 +45,9 @@ function shareByFacebook() {
 function shareByLinkedin() {
     var url = window.location.href;
     var text = "A page of interest on Altana Wealth website";
-    window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'), '_blank');
+    hrefDialog(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
 };
+
 function followByLinkedin() {
     window.open(encodeURI("https://www.linkedin.com/company/altana-wealth/about/"), '_blank');
 };

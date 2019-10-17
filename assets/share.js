@@ -33,7 +33,8 @@ function shareByFacebook() {
     href = href + "?app_id=972752376410619";
     href = href + "&redirect_uri=" + window.location;
     href = href + "&display=popup";
-    href = href + "&link=" + window.location;
+//    href = href + "&link=" + window.location;
+    href = href + "&href=" + window.location;
 
 /*
     href = href + "&name=" + "Shared article from Altana Wealth";

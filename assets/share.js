@@ -5,7 +5,8 @@ window.addEventListener('DOMContentLoaded', function() {
     document.getElementById('share-email').addEventListener("click", shareByEmail);
     document.getElementById('share-facebook').addEventListener("click", shareByFacebook);
     document.getElementById('share-linkedin').addEventListener("click", shareByLinkedin);
-    document.getElementById('share-messenger').addEventListener("click", shareBymessenger);
+    document.getElementById('share-messenger-desktop').addEventListener("click", shareBymessengerDesktop);
+    document.getElementById('share-messenger-mobile').addEventListener("click", shareBymessengerMobile);
     document.getElementById('share-twitter').addEventListener("click", shareByTwitter);
     document.getElementById('share-whatsapp').addEventListener("click", shareByWhatsapp);
     document.getElementById('share-share').addEventListener("click", shareByShare);
@@ -16,26 +17,36 @@ window.addEventListener('DOMContentLoaded', function() {
 });
 
 function shareByEmail() {
-    var mail = document.createElement("a");
-    var href = 'mailto:?subject=Shared%20from%20Altana%20Wealth\&body=Sharing content from Altana Wealth ' + window.location;
-
-    mail.href = href;
-    mail.click();
+    var href = "mailto:?subject=";
+    href = href + "Shared from Altana Wealth";
+    href = href + "\&body=Sharing content from Altana Wealth " + window.location;
+    hrefClick(href);
 };
 function followByEmail() {
   signUpButtonClick()
 };
 
 function shareByFacebook() {
-    var thisPage = window.location.pathname; + window.location.pathname;
-    alert('Hi <' + thisPage + '>');
+// https://developers.facebook.com/docs/sharing/reference/feed-dialog/
+
+    var href="https://www.facebook.com/dialog/feed"
+    href = href + "?app_id=972752376410619";
+    href = href + "&redirect_uri=https://mybrightidea.squarespace.com/assets/fb_red_uri.html"
+    href = href + "&display=popup";
+    href = href + "&link=" + window.location;
+/*
+    href = href + "&name=" + "Shared article from Altana Wealth";
+    href = href + "&caption=" + "Altana Caption";
+    href = href + "&description=" + "Altana Description";
+*/
+    hrefClick(href);
 };
 
 function shareByLinkedin() {
     var url = window.location;
     var text = "A page of interest on Altana Wealth website";
-    window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
-
+    console.log(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'));
+    window.open(encodeURI('https://www.linkedin.com/shareArticle?mini=true&url=' + url + '&title=&summary=' + text + '&source=Altana Wealth'), '_blank');
 };
 function followByLinkedin() {
     window.open(encodeURI("https://www.linkedin.com/company/altana-wealth/about/"), '_blank');
@@ -45,10 +56,32 @@ function followByTeamtailor() {
 };
 
 
-function shareBymessenger() {
-    var thisPage = window.location.pathname;
-    alert('Hi <' + thisPage + '>');
+function shareBymessengerMobile() {
+    var url = window.location;
+    var href = "fb-messenger://share";
+    href = href + "?app_id=972752376410619";
+    href = href + "&amp;redirect_uri=" + url;
+    href = href + "&amp;link=" + url;
+
+    var attributes = [
+        {name: "rel",   value: "noopener"},
+        {name: "target",        value: "_blank"}];
+
+    hrefClick(href, attributes);
 };
+function shareBymessengerDesktop() {
+    var url = window.location;
+    var href = "http://www.facebook.com/dialog/send";
+    href = href + "?app_id=972752376410619";
+    href = href + "&amp;redirect_uri=" + url;
+    href = href + "&amp;link=" + url;
+    href = href + "&amp;display=popup";
+    hrefClick(href);
+};
+
+
+
+
 
 function shareByTwitter() {
     var url = window.location;
@@ -60,14 +93,13 @@ function shareByTwitter() {
 function shareByWhatsapp() {
     var url = window.location;
     var shareText = "A page of interest on Altana Wealth website";
+    var attributes = [
+        {name: "data-action",   value: "share/whatsapp/share"},
+        {name: "target",        value: "_blank"}];
 
-    var a = document.createElement("a");
     var href = encodeURI('whatsapp://send?text=' + shareText + ' ' + url);
 
-    a.href = href;
-    a.setAttribute("data-action","share/whatsapp/share");
-    a.setAttribute("target", "_blank"); 
-    a.click();
+    hrefClick(href, attributes);
 };
 
 function shareByShare() {
@@ -102,3 +134,18 @@ function shareByShare() {
         }
     }
 };
+
+function hrefClick(href, attributes) {
+
+if (typeof attributes === 'undefined') { attributes =  []; }
+
+    var a = document.createElement("a");
+
+    a.href = encodeURI(href);
+    a.href = href;
+
+    for (var i = 0; i < attributes.length; i++) {
+      a.setAttribute(attributes[i].name, attributes[i].value);
+    }
+    a.click();
+}

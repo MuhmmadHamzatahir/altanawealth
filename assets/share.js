@@ -5,8 +5,8 @@ window.addEventListener('DOMContentLoaded', function() {
     document.getElementById('share-email').addEventListener("click", shareByEmail);
     document.getElementById('share-facebook').addEventListener("click", shareByFacebook);
     document.getElementById('share-linkedin').addEventListener("click", shareByLinkedin);
-    document.getElementById('share-messenger-desktop').addEventListener("click", shareBymessengerDesktop);
-    document.getElementById('share-messenger-mobile').addEventListener("click", shareBymessengerMobile);
+    document.getElementById('share-messenger-desktop').addEventListener("click", shareByMessengerDesktop);
+    document.getElementById('share-messenger-mobile').addEventListener("click", shareByMessengerMobile);
     document.getElementById('share-twitter').addEventListener("click", shareByTwitter);
     document.getElementById('share-whatsapp').addEventListener("click", shareByWhatsapp);
     document.getElementById('share-share').addEventListener("click", shareByShare);
@@ -53,7 +53,7 @@ function followByTeamtailor() {
 };
 
 
-function shareBymessengerMobile() {
+function shareByMessengerMobile() {
     var url = window.location;
     var href = "fb-messenger://share";
     href = href + "?app_id=972752376410619";
@@ -66,14 +66,21 @@ function shareBymessengerMobile() {
 
     hrefClick(href, attributes);
 };
-function shareBymessengerDesktop() {
-    var url = window.location;
+function shareByMessengerDesktop() {
     var href = "http://www.facebook.com/dialog/send";
     href = href + "?app_id=972752376410619";
-    href = href + "&amp;redirect_uri=" + url;
-    href = href + "&amp;link=" + url;
-    href = href + "&amp;display=popup";
-    hrefClick(href);
+    href = href + "&redirect_uri=" + encodeURI(window.location);
+    href = href + "&link=" + encodeURI(window.location);
+    href = href + "&display=popup";
+
+
+    window.open (href, 
+        '_blank', 
+        'toolbar=no,scrollbars=yes,resizable=no,fullscreen=no,top=50,left=50,width=555,height=615');
+
+
+
+
 };
 
 

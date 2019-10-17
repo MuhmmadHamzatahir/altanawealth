@@ -31,14 +31,14 @@ function shareByFacebook() {
 
     var href="https://www.facebook.com/dialog/feed"
     href = href + "?app_id=972752376410619";
-    href = href + "&redirect_uri=https://mybrightidea.squarespace.com/assets/fb_red_uri.html"
+    href = href + "&redirect_uri=" + window.location;
     href = href + "&display=popup";
     href = href + "&link=" + window.location;
-/*
+
     href = href + "&name=" + "Shared article from Altana Wealth";
     href = href + "&caption=" + "Altana Caption";
     href = href + "&description=" + "Altana Description";
-*/
+
     hrefClick(href);
 };
 

@@ -1,3 +1,6 @@
+var calledFromPage = "/";
+var thisPage = window.location.href;
+
 var pagesRequiringDisclaimerAcceptance = [{
     pageName: "adas-fund-information"
 }, {
@@ -8,6 +11,8 @@ var localStorageExists = false;
 
 window.addEventListener('DOMContentLoaded', function() {
 
+    thisPage = window.location.href;
+    console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
     localStorageExists = (typeof(Storage) !== "undefined");
 
     closeDisclaimerPopUp();
@@ -35,7 +40,10 @@ function disclaimerAccepted() {
     if (localStorageExists) {
         localStorage.acceptedDisclaimer = true;
         localStorage.acceptedDateTimeUTC = new Date();
+        calledFromPage = window.location.href;
+        console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
     }
+
 
     closeDisclaimerPopUp();
 }
@@ -47,6 +55,8 @@ function disclaimerDeclined() {
         localStorage.acceptedDateTimeUTC = new Date();
     }
     closeDisclaimerPopUp();
+    console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
+    location.replace(calledFromPage);
 }
 
 

@@ -12,7 +12,7 @@ var localStorageExists = false;
 window.addEventListener('DOMContentLoaded', function() {
 
     thisPage = window.location.href;
-    console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
+        console.log("Loaded: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
     localStorageExists = (typeof(Storage) !== "undefined");
 
     closeDisclaimerPopUp();
@@ -41,7 +41,7 @@ function disclaimerAccepted() {
         localStorage.acceptedDisclaimer = true;
         localStorage.acceptedDateTimeUTC = new Date();
         calledFromPage = window.location.href;
-        console.log("Loaded: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
+        console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
     }
 
 
@@ -55,7 +55,7 @@ function disclaimerDeclined() {
         localStorage.acceptedDateTimeUTC = new Date();
     }
     closeDisclaimerPopUp();
-    console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
+        console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
     location.replace(calledFromPage);
 }
 

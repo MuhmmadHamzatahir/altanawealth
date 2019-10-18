@@ -41,7 +41,7 @@ function disclaimerAccepted() {
         localStorage.acceptedDisclaimer = true;
         localStorage.acceptedDateTimeUTC = new Date();
         calledFromPage = window.location.href;
-        console.log("Loaded: calledFromPage <" +calledFromPage "> this <" +thisPage+ ">")
+        console.log("Loaded: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
     }
 
 

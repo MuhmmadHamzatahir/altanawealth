@@ -4,8 +4,31 @@ var thisPage = window.location.href;
 var pagesRequiringDisclaimerAcceptance = [{
     pageName: "adas-fund-information"
 }, {
+    pageName: "tbf-fund-information"
+}, {
+    pageName: "acf-fund-information"
+}, {
+    pageName: "actf-strategy-information"
+}, {
+    pageName: "adcf-strategy-information"
+}, {
+    pageName: "adas-research-and-sentiment-data"
+}, {
+    pageName: "adas-directors-report-us"
+}, {
+    pageName: "adas-directors-report-europe"
+}, {
+    pageName: "adas-directors-report-asia"
+}, {
+    pageName: "adof-strategy-information"
+}, {
+    pageName: "aspa-strategy-information"
+}, {
+    pageName: "pssif-fund-information"
+}, {
     pageName: "acbf-fund-information"
 }];
+
 
 var localStorageExists = false;
 

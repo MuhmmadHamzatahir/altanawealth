@@ -19,5 +19,7 @@ function addModifiedHeaderIfRequired() {
     }
 };
 window.addEventListener('DOMContentLoaded', function() {
-  addModifiedHeaderIfRequired()
+//  addModifiedHeaderIfRequired()
+// No have on all pages
+      document.getElementsByTagName("BODY")[0].classList.add("header-modified");
 });

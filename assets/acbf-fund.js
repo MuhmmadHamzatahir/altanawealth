@@ -1,4 +1,4 @@
-function drawCharts {
+function drawCharts (){
     loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawSummaryFromPerfData, 'acbf-fund-table01');
     loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawPerfTable, 'acbf-fund-table02');
     loadVisualization('acbf_monthly_perf_ALTCBCG.csv', drawPerfTable, 'acbf-fund-table03');

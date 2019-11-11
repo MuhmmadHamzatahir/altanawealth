@@ -1,73 +1,37 @@
-// Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart', 'table', 'gauge', 'geochart']});
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(loadGraphsAndCharts);
+function drawCharts(){
+    loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawTable01);
+}
 
-// Need to have explicit resize callback as google not great at resizing
-$(window).resize(function(){
-  loadGraphsAndCharts();
-});
 
-function loadGraphsAndCharts() {
-  drawTable01();
-  drawTable02();
-};
 // TABLE 01 //
-function drawTable01() {
-  var opts = {sendMethod: 'auto'};
-  var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1OfqimDShQ6bOocWDroskErngvZZ5FeVfuvEJdz28j48/edit?usp=sharing', opts);
+function drawTable01(data) {
 
-  query.send(handleQueryResponseTable01);
-}
+  var dataSubset = new google.visualization.DataTable();
+  dataSubset.addColumn('string', 'Title');
+  dataSubset.addColumn('number', 'Return');
+  const origCols = data.getNumberOfColumns();
+  const origRows = data.getNumberOfRows();
 
-function handleQueryResponseTable01(response) {
-  if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    return;
-    }
-
-  var data = response.getDataTable();
-
-  var cssClassNames = {
-    headerRow: 'ag-table-summary-hdr',
-    tableRow: 'ag-table-summary-row',
-    oddTableRow: 'ag-table-summary-odd-row'};
-  // Set chart options
-  var options = {showRowNumber: false,
-                  width: '100%',
-                   cssClassNames: cssClassNames};
-
-  var chart = new google.visualization.Table(document.getElementById('acbf-fund-intro-table01'));
-  chart.draw(data, options);
-}
-// END TABLE 01 //
-// TABLE 02 //
-function drawTable02() {
-  var opts = {sendMethod: 'auto'};
-  var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1MRR82GA6r_3sFfVsMGQvM24RR0QXSe43GYHSjIuSG6s/edit?usp=sharing', opts);
-
-  query.send(handleQueryResponseTable02);
-}
-
-function handleQueryResponseTable02(response) {
-  if (response.isError()) {
-    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
-    return;
-    }
-
-  var data = response.getDataTable();
+  dataSubset.addRows([
+  [data.getColumnLabel(origCols-2), {v: parseFloat(data.getValue(origRows-1, origCols-2)), 
+    f:data.getValue(origRows-1, origCols-2)}], 
+  [data.getColumnLabel(origCols-1), {v: parseFloat(data.getValue(origRows-1, origCols-1)), 
+    f:data.getValue(origRows-1, origCols-1)}]
+  ]);
 
     var cssClassNames = {
-    headerRow: 'ag-table-intro-hdr',
-    tableRow: 'ag-table-intro-row',
-    oddTableRow: 'ag-table-intro-odd-row'};
-  // Set chart options
-  var options = {showRowNumber: false,
-                  width: '100%',
-                  cssClassNames: cssClassNames};
+        headerRow: 'ag-table-summary-hdr',
+        tableRow: 'ag-table-summary-row',
+        oddTableRow: 'ag-table-summary-odd-row'
+    };
+    // Set chart options
+    var options = {
+        showRowNumber: false,
+        width: '100%',
+        cssClassNames: cssClassNames
+    };
 
-
-  var chart = new google.visualization.Table(document.getElementById('acbf-fund-intro-table02'));
-  chart.draw(data, options);
+    var chart = new google.visualization.Table(document.getElementById('acbf-fund-intro-table01'));
+    chart.draw(dataSubset, options);
 }
-// END TABLE 02 //
+// END TABLE 01 //

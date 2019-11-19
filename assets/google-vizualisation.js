@@ -1,7 +1,124 @@
 const docRoot = 'https://mybrightidea.squarespace.com/assets/chart-data/';
 //const docRoot = 'https://s3.amazonaws.com/cdn.altanawealth.com/public/csv/';
 
+const gold = '#b89d18';
+const lightblue = '#367bb7';
+const darkblue = 'rgb(2, 2, 136)';
+
+function makeTimeSeries(data) {
+    var timeSeriesData;
+    timeSeriesData = new google.visualization.DataTable();
+
+    timeSeriesData.addColumn('string', data.vg[0].label);
+
+    for (var i = 1; i < data.vg.length; ++i) {
+        timeSeriesData.addColumn('number', data.vg[i].label);
+    }
+
+    const origRows = data.getNumberOfRows();
+    timeSeriesData.addRows(origRows);
+
+    for (var i = 0; i < data.getNumberOfRows(); i++) {
+        timeSeriesData.setCell(i, 0, data.getValue(i, 0));
+        for (var j = 1; j < data.vg.length; ++j) {
+            timeSeriesData.setCell(i, j, parseFloat(data.getValue(i, j)));
+        };
+    }
+
+    return timeSeriesData;
+}
+
+function drawDonut(data, div) {
+    // Set chart options
+    var options = {
+        sliceVisibilityThreshold: 0.1,
+        pieResidueSliceColor: 'red',
+        pieSliceTextStyle: {
+            color: 'white'
+        },
+        pieSliceText: 'value',
+
+
+        slices: {
+            0: {
+                color: darkblue,
+                offset: 0.4
+            },
+            1: {
+                color: lightblue
+            },
+            2: {
+                color: '#6A5ACD'
+            },
+            3: {
+                color: gold
+            },
+            4: {
+                color: 'transparent'
+            },
+            5: {
+                color: 'transparent'
+            },
+            6: {
+                color: 'transparent'
+            },
+            7: {
+                color: 'transparent'
+            },
+            8: {
+                color: 'transparent'
+            },
+            9: {
+                color: 'transparent'
+            }
+        }
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById(div));
+    chart.draw(makeTimeSeries(data), options);
+}
+
+function drawColumn(data, div) {
+    // Set chart options
+    var options = {
+        chartArea: {
+            width: '80%'
+        },
+        //                  width:"100%", 
+        height: 540,
+        legend: 'bottom',
+        colors: [lightblue, gold]
+    }
+
+    var chart = new google.visualization.ColumnChart(document.getElementById(div));
+    chart.draw(makeTimeSeries(data), options);
+}
+
+function drawArea(data, div) {
+    // Set chart options
+    var options = {
+        chartArea: {
+            width: '80%'
+        },
+        width: "100%",
+        height: 360,
+        legend: 'bottom',
+        colors: [lightblue, gold]
+    }
+
+    var chart = new google.visualization.AreaChart(document.getElementById(div));
+    chart.draw(makeTimeSeries(data), options);
+}
+
 function drawSummaryFromPerfData(data, div) {
+
+const fmt = new Intl.NumberFormat(undefined, {
+        style: "decimal",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })
+
+
     var dataSubset = new google.visualization.DataTable();
     dataSubset.addColumn('string', 'Title');
     dataSubset.addColumn('number', 'Return');
@@ -11,11 +128,11 @@ function drawSummaryFromPerfData(data, div) {
     dataSubset.addRows([
         [data.getColumnLabel(origCols - 2), {
             v: parseFloat(data.getValue(origRows - 1, origCols - 2)),
-            f: data.getValue(origRows - 1, origCols - 2)
+            f: fmt.formatWithSign(parseFloat(data.getValue(origRows - 1, origCols - 2))) + '%'
         }],
         [data.getColumnLabel(origCols - 1), {
             v: parseFloat(data.getValue(origRows - 1, origCols - 1)),
-            f: data.getValue(origRows - 1, origCols - 1)
+            f: fmt.formatWithSign(parseFloat(data.getValue(origRows - 1, origCols - 1))) + '%'
         }]
     ]);
 
@@ -40,7 +157,29 @@ function drawSummaryPerfTable(data, div) {
 }
 
 
+function drawLine(data, div) {
+    // Set chart options
+    var options = {
+        chartArea: {
+            width: '80%'
+        },
+        width: "100%",
+        height: 540,
+        legend: 'bottom',
+        colors: [lightblue, gold, darkblue],
+        vAxis: {
+            format: '#,##0',
+            title: 'Return'
+        },
+        hAxis: {
+            format: 'MM/YY',
+            title: ''
+        }
+    };
 
+    var chart = new google.visualization.LineChart(document.getElementById(div));
+    chart.draw(makeTimeSeries(data), options);
+}
 
 function drawMap(data, div) {
 
@@ -50,22 +189,21 @@ function drawMap(data, div) {
     mapData.addColumn('number', 'Filings');
     const origRows = data.getNumberOfRows();
 
-    for (var i = 0 ; i < data.getNumberOfRows(); i++) {
-    mapData.addRows([
-        [data.getValue(i, 0),
-        {
-            v: parseFloat(data.getValue(i, 1))
-        }]
-    ]);
+    for (var i = 0; i < data.getNumberOfRows(); i++) {
+        mapData.addRows([
+            [data.getValue(i, 0), {
+                v: parseFloat(data.getValue(i, 1))
+            }]
+        ]);
     }
- 
+
 
 
     // Set chart options
     var options = {
         datalessRegionColor: 'rgb(227, 213, 140)',
         colorAxis: {
-            colors: ['lightblue', 'rgb(2, 2, 136)']
+            colors: ['lightblue', darkblue]
         }
     };
     var chart = new google.visualization.GeoChart(document.getElementById(div));
@@ -73,15 +211,18 @@ function drawMap(data, div) {
 }
 
 
-Intl.NumberFormat.prototype.formatWithSign = function(x) 
-{
-  let y = this.format(x);
-  return x < 0 ? y : '+' + y;
+Intl.NumberFormat.prototype.formatWithSign = function(x) {
+    let y = this.format(x);
+    return x < 0 ? y : '+' + y;
 }
 
 function drawGauge(data, div) {
 
-const fmt = new Intl.NumberFormat(undefined, { style: "decimal", minimumFractionDigits: 2, maximumFractionDigits:2} )
+    const fmt = new Intl.NumberFormat(undefined, {
+        style: "decimal",
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+    })
 
     var gaugeData = new google.visualization.DataTable();
     gaugeData.addColumn('number', 'Sentiment');
@@ -89,14 +230,14 @@ const fmt = new Intl.NumberFormat(undefined, { style: "decimal", minimumFraction
 
     var val = parseFloat(data.getValue(0, 1));
 
-    gaugeData.setCell(0, 0, 
+    gaugeData.setCell(0, 0,
         val,
         fmt.formatWithSign(val));
 
     var cssClassNames = {};
     // Set chart options
     var gaugeOptions = {
-//weird - gauge only reacts to height
+        //weird - gauge only reacts to height
         height: 300,
         min: -1,
         max: 1,

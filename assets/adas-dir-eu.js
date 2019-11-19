@@ -3,7 +3,7 @@ function drawCharts(){
     loadVisualization('existing/eu_director_activity_ratio.csv', drawGauge, 'adas-dir-eu-gauge01');
     loadVisualization('existing/eu_director_activity.csv', drawArea, 'adas-dir-eu-area01');
     loadVisualization('existing/eu_director_activity_ratio_history.csv', drawLine, 'adas-dir-eu-line01');
-    loadVisualization('existing/eu_filings_transactions.csv', drawArea, 'adas-dir-eu-area02');
+    loadVisualization('existing/eu_filings.csv', drawArea, 'adas-dir-eu-area02');
     loadVisualization('existing/eu_director_rank_pecent.csv', drawArea, 'adas-dir-eu-area03', 'percent');
 }
 function drawGoogleVisualizations() {

@@ -13,6 +13,5 @@ window.onresize = function(event) {
 
 
 function drawCharts(){
-    loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawTable01);
     loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawSummaryFromPerfData, 'acbf-fund-intro-table01');
 }

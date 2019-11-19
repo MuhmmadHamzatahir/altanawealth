@@ -1,3 +1,6 @@
+function drawCharts(){
+    loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawSummaryFromPerfData, 'acbf-fund-intro-table01');
+}
 function drawGoogleVisualizations() {
     // Load the Visualization API and the corechart package.
     google.charts.load('current', {
@@ -10,8 +13,3 @@ window.addEventListener('DOMContentLoaded', drawGoogleVisualizations);
 window.onresize = function(event) {
     drawGoogleVisualizations();
 };
-
-
-function drawCharts(){
-    loadVisualization('acbf_monthly_perf_ALTCBOU.csv', drawSummaryFromPerfData, 'acbf-fund-intro-table01');
-}

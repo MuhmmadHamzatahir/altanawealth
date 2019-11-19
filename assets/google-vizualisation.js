@@ -94,16 +94,17 @@ function drawColumn(data, div) {
     chart.draw(makeTimeSeries(data), options);
 }
 
-function drawArea(data, div) {
+function drawArea(data, div, isStacked) {
     // Set chart options
     var options = {
         chartArea: {
             width: '80%'
         },
         width: "100%",
-        height: 360,
+        height: 540,
         legend: 'bottom',
-        colors: [lightblue, gold]
+        colors: [lightblue, gold, darkblue],
+        isStacked: isStacked
     }
 
     var chart = new google.visualization.AreaChart(document.getElementById(div));
@@ -181,7 +182,7 @@ function drawLine(data, div) {
     chart.draw(makeTimeSeries(data), options);
 }
 
-function drawMap(data, div) {
+function drawMap(data, div, region, resolution) {
 
     var mapData;
     mapData = new google.visualization.DataTable();
@@ -198,13 +199,14 @@ function drawMap(data, div) {
     }
 
 
-
     // Set chart options
     var options = {
         datalessRegionColor: 'rgb(227, 213, 140)',
         colorAxis: {
             colors: ['lightblue', darkblue]
-        }
+        },
+        region: region,
+        resolution: resolution
     };
     var chart = new google.visualization.GeoChart(document.getElementById(div));
     chart.draw(mapData, options);
@@ -281,23 +283,21 @@ function stringTo2dArray(string, d1, d2) {
     });
 }
 
-function loadVisualization(chartFile, chartLoader, div, overrideDefaultDir) {
+function loadVisualization(chartFile, chartLoader, div, param1, param2) {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
-            loadVizCallBack(this, chartLoader, div);
+            loadVizCallBack(this, chartLoader, div, param1, param2);
         }
     };
-    if (!overrideDefaultDir) {
-        chartFile = docRoot + chartFile;
-    }
+    chartFile = docRoot + chartFile;
     xhttp.open("GET", chartFile, true);
     xhttp.send();
 }
 
-function loadVizCallBack(xml, chartLoader, div) {
+function loadVizCallBack(xml, chartLoader, div, param1, param2) {
     var tableData = stringTo2dArray(xml.responseText, '\n', ',');
     tableData = tableData.slice(0, tableData.length - 1);
 
-    chartLoader(google.visualization.arrayToDataTable(tableData), div);
+    chartLoader(google.visualization.arrayToDataTable(tableData), div, param1, param2);
 }

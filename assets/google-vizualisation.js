@@ -162,7 +162,8 @@ function drawLine(data, div) {
     // Set chart options
     var options = {
         chartArea: {
-            width: '80%'
+            width: '100%',
+            height: '100%'
         },
         width: "100%",
         height: 540,
@@ -259,7 +260,7 @@ function drawGauge(data, div) {
     gauge.draw(gaugeData, gaugeOptions);
 }
 
-function drawPerfTable(data, div) {
+function drawPerfTable(data, div, leadingPlusSign = false, formatDP = false) {
     var cssClassNames = {
         headerRow: 'ag-table-hdr',
         tableRow: 'ag-table-row',

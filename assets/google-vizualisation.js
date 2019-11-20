@@ -27,6 +27,47 @@ function makeTimeSeries(data) {
 
     return timeSeriesData;
 }
+function formatPerfDataTable(data, leadingPlusSign, formatDP) {
+    var perfData;
+    perfData = new google.visualization.DataTable();
+
+    // create columns
+    perfData.addColumn('string', data.vg[0].label);
+    for (var i = 1; i < data.vg.length; ++i) {
+        perfData.addColumn('number', data.vg[i].label);
+    }
+
+    // create rows
+    perfData.addRows(data.getNumberOfRows());
+
+const fmt = new Intl.NumberFormat(undefined, {
+        style: "decimal",
+        minimumFractionDigits: formatDP,
+        maximumFractionDigits: formatDP
+    })
+
+    for (var i = 0; i < data.getNumberOfRows(); ++i) {
+        //add first column data (not formatted - just transcribed)
+        perfData.setCell(i, 0, data.getValue(i, 0));
+
+        //add subsequent columns with formatting
+        for (var j = 1; j < data.getNumberOfColumns(); ++j) {
+            var val = parseFloat(data.getValue(i, j));
+            var fmtVal = fmt.formatWithSign(val) + '%';
+
+            if (isNaN(val)){
+                val = '';
+                fmtVal = '';
+            }
+            else
+            {
+
+            }
+            perfData.setCell(i, j, val, fmtVal);
+        };
+    }
+    return perfData;
+}
 
 function drawDonut(data, div) {
     // Set chart options
@@ -257,7 +298,18 @@ function drawGauge(data, div) {
     gauge.draw(gaugeData, gaugeOptions);
 }
 
-function drawPerfTable(data, div, leadingPlusSign = false, formatDP = false) {
+function drawPerfTable(data, div, leadingPlusSign = false, formatDP = -1) {
+
+    var tableData = null;
+
+    if (leadingPlusSign || formatDP >= 0) {
+        tableData = formatPerfDataTable(data, leadingPlusSign, formatDP);
+    }
+    else
+    {
+        tableData = data;
+    }
+
     var cssClassNames = {
         headerRow: 'ag-table-hdr',
         tableRow: 'ag-table-row',
@@ -272,7 +324,7 @@ function drawPerfTable(data, div, leadingPlusSign = false, formatDP = false) {
     };
 
     var chart = new google.visualization.Table(document.getElementById(div));
-    chart.draw(data, options);
+    chart.draw(tableData, options);
 }
 
 function stringTo2dArray(string, d1, d2) {

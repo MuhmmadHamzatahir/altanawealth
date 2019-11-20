@@ -1,13 +1,12 @@
 function drawCharts(){
     loadVisualization('existing/growth_aias.csv', drawLine, 'adas-fund-line01');
-    loadVisualization('adas_monthly_perf_ALTDASA.csv', drawPerfTable, 'adas-fund-table01');
-
-    loadVisualization('adas_monthly_perf_GS.csv', drawPerfTable, 'adas-fund-table02');
-    loadVisualization('adas_monthly_perf_HFRX.csv', drawPerfTable, 'adas-fund-table03');
-    loadVisualization('adas_monthly_perf_split_returns.csv', drawPerfTable, 'adas-fund-table04');
+    loadVisualization('adas_monthly_perf_ALTDASA.csv', drawPerfTable, 'adas-fund-table01', true, 2);
+    loadVisualization('adas_monthly_perf_GS.csv', drawPerfTable, 'adas-fund-table02', true, 2);
+    loadVisualization('adas_monthly_perf_HFRX.csv', drawPerfTable, 'adas-fund-table03', true, 2);
+    loadVisualization('adas_monthly_perf_split_returns.csv', drawPerfTable, 'adas-fund-table04', true, 2);
     loadVisualization('existing/gross_net_exposure.csv', drawArea, 'adas-fund-area01');
     loadVisualization('existing/open_positions.csv', drawArea, 'adas-fund-area02');
-    loadVisualization('adas_monthly_perf_gross_net.csv', drawPerfTable, 'adas-fund-table05');
+    loadVisualization('adas_monthly_perf_gross_net.csv', drawPerfTable, 'adas-fund-table05', true, 0);
     loadVisualization('existing/sector_exposure_long.csv', drawDonut, 'adas-fund-donut01');
     loadVisualization('existing/sector_exposure_short.csv', drawDonut, 'adas-fund-donut02');
     loadVisualization('existing/cap_aias_net.csv', drawColumn, 'adas-fund-column01');

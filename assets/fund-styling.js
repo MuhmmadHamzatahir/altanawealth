@@ -7,6 +7,7 @@ var pageToClassMap = [
 {pageName: 'adas-directors-report-asia', fundClass: 'adas'},
 {pageName: 'acbf-overview', fundClass: 'acbf'},
 {pageName: 'acbf-fund-information', fundClass: 'acbf'},
+{pageName: 'top-test', fundClass: 'acbf'},
 {pageName: 'apas-strategy-information', fundClass: 'apas'},
 {pageName: 'tbf-overview', fundClass: 'tbf'},
 {pageName: 'tbf-fund-information', fundClass: 'tbf'},

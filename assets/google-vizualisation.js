@@ -85,6 +85,7 @@ function drawColumn(data, div) {
             width: '90%',
             height: '90%'
         },
+        height: '480',
         legend: 'bottom',
         colors: [lightblue, gold]
     }
@@ -162,6 +163,7 @@ function drawLine(data, div) {
             width: '90%',
             height: '90%'
         },
+        height: '480',
         legend: 'bottom',
         colors: [lightblue, gold, darkblue],
         vAxis: {

@@ -98,7 +98,8 @@ function drawArea(data, div, isStacked) {
     // Set chart options
     var options = {
         chartArea: {
-            width: '80%'
+            width: '90%',
+            height: '90%'
         },
         width: "100%",
         height: 540,
@@ -161,6 +162,10 @@ function drawSummaryPerfTable(data, div) {
 function drawLine(data, div) {
     // Set chart options
     var options = {
+        chartArea: {
+            width: '90%',
+            height: '90%'
+        },
         width: "100%",
         height: 540,
         legend: 'bottom',

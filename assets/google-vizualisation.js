@@ -82,10 +82,9 @@ function drawColumn(data, div) {
     // Set chart options
     var options = {
         chartArea: {
-            width: '80%'
+            width: '90%',
+            height: '90%'
         },
-        //                  width:"100%", 
-        height: 540,
         legend: 'bottom',
         colors: [lightblue, gold]
     }
@@ -101,8 +100,6 @@ function drawArea(data, div, isStacked) {
             width: '90%',
             height: '90%'
         },
-        width: "100%",
-        height: 540,
         legend: 'bottom',
         colors: [lightblue, gold, darkblue],
         isStacked: isStacked
@@ -150,7 +147,6 @@ function drawSummaryPerfTable(data, div) {
     // Set chart options
     var options = {
         showRowNumber: false,
-        width: '100%',
         cssClassNames: cssClassNames
     };
 
@@ -166,8 +162,6 @@ function drawLine(data, div) {
             width: '90%',
             height: '90%'
         },
-        width: "100%",
-        height: 540,
         legend: 'bottom',
         colors: [lightblue, gold, darkblue],
         vAxis: {

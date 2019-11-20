@@ -300,7 +300,6 @@ function drawGauge(data, div) {
 }
 
 function drawPerfTable(data, div, leadingPlusSign = false, formatDP = -1) {
-
     var tableData = null;
 
     if (leadingPlusSign || formatDP >= 0) {

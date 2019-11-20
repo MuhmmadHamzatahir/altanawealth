@@ -189,7 +189,8 @@ function drawSummaryPerfTable(data, div) {
     // Set chart options
     var options = {
         showRowNumber: false,
-        cssClassNames: cssClassNames
+        cssClassNames: cssClassNames,
+        width: '100%'
     };
 
     var chart = new google.visualization.Table(document.getElementById(div));

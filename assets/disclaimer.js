@@ -35,7 +35,6 @@ var localStorageExists = false;
 window.addEventListener('DOMContentLoaded', function() {
 
     thisPage = window.location.href;
-        console.log("Loaded: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
     localStorageExists = (typeof(Storage) !== "undefined");
 
     closeDisclaimerPopUp();

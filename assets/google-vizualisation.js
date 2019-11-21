@@ -212,12 +212,10 @@ function drawLine(data, div) {
         legend: 'bottom',
         colors: [lightblue, gold, darkblue],
         vAxis: {
-            format: '#,##0',
-            title: 'Return'
+            format: '0.00'
         },
         hAxis: {
-            format: 'MM/YY',
-            title: ''
+            format: 'MM/YY'
         }
     };
 

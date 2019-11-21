@@ -37,7 +37,8 @@ function addFundClassIfRequired() {
 
   // test if page exists in pageToClassMap array
   // pageToClassMap defined in codeInjections
-  var result = pageToClassMap.filter(x => x.pageName === thisPage);
+// NOT WORK IN INTERNET EXPLORER    var result = pageToClassMap.filter(x => x.pageName === thisPage);
+    var result = pageToClassMap.filter(function(x) { return x.pageName === thisPage; });
 
   if (result.length != 0) {
     document.getElementsByTagName("BODY")[0].classList.add("page-with-fund-headers");

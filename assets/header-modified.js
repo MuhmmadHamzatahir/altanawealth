@@ -10,7 +10,8 @@ function addModifiedHeaderIfRequired() {
     var thisPage = window.location.pathname.split('/').slice(-1)[0];
 
     // test if page exists in pagesModifiedHeader array
-    var result = pagesModifiedHeader.filter(x => x.pageName === thisPage).length;
+// NOT WORK IN INTERNET EXPLORER    var result = pagesModifiedHeader.filter(x => x.pageName === thisPage).length;
+    var result = pagesModifiedHeader.filter(function(x) { return x.pageName === thisPage; }.length);
 
     if (result != 0) {
       document.getElementsByTagName("BODY")[0].classList.add("header-modified");

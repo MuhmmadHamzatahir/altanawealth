@@ -182,12 +182,15 @@ const fmt = new Intl.NumberFormat(undefined, {
 
 function drawSummaryPerfTable(data, div) {
     var cssClassNames = {
+        headerCell: 'ag-no-header',
         headerRow: 'ag-table-summary-hdr',
         tableRow: 'ag-table-summary-row',
         oddTableRow: 'ag-table-summary-odd-row'
     };
     // Set chart options
+
     var options = {
+        allowHtml: true,
         showRowNumber: false,
         cssClassNames: cssClassNames,
         width: '100%'
@@ -299,7 +302,11 @@ function drawGauge(data, div) {
     gauge.draw(gaugeData, gaugeOptions);
 }
 
-function drawPerfTable(data, div, leadingPlusSign = false, formatDP = -1) {
+function drawPerfTable(data, div, leadingPlusSign, formatDP) {
+
+    leadingPlusSign = (typeof leadingPlusSign !== 'undefined') ?  leadingPlusSign : false;
+    formatDP = (typeof formatDP !== 'undefined') ?  formatDP : -1;
+
     var tableData = null;
 
     if (leadingPlusSign || formatDP >= 0) {

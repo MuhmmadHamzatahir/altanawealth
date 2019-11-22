@@ -2,9 +2,7 @@
 preloadImages([
 '/assets/main-lighthouse-16x9-01.jpg',
 '/assets/main-lighthouse-16x9-alt-01.jpg',
-'/assets/main-lighthouse-16x9-01.jpg',
 '/assets/main-beach-16x9-01.jpg',
-'/assets/main-lightning-16x9-01.jpg',
 '/assets/main-lightning-alt-16x9-01.jpg',
 '/assets/main-greenhand-16x9-alt-less-green-01.jpg'
 ], function(){

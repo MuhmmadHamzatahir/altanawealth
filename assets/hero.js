@@ -1,5 +1,4 @@
 preloadImages([
-'https://static1.squarespace.com/static/5be585ad8f5130661d425e56/t/5dd79d920ab5465cb216ad17/1574411668257/main-transparent-1920x1080-01.png?format=2500w',
 '/assets/main-lighthouse-16x9-01.jpg',
 '/assets/main-lighthouse-16x9-alt-01.jpg',
 '/assets/main-beach-16x9-01.jpg',

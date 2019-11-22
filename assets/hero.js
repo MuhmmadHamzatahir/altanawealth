@@ -1,3 +1,16 @@
+// Let's call it:
+preloadImages([
+'/assets/main-lighthouse-16x9-01.jpg',
+'/assets/main-lighthouse-16x9-alt-01.jpg',
+'/assets/main-lighthouse-16x9-01.jpg',
+'/assets/main-beach-16x9-01.jpg',
+'/assets/main-lightning-16x9-01.jpg',
+'/assets/main-lightning-alt-16x9-01.jpg',
+'/assets/main-greenhand-16x9-alt-less-green-01.jpg'
+], function(){
+    console.log('All images were loaded');
+});
+
 var loop = 0;
 var bodyID;
 var strap2ID;
@@ -44,4 +57,23 @@ function loopStyling() {
             break;
     }
     loop = (loop + 1) % 4;
+}
+
+function preloadImages(urls, allImagesLoadedCallback){
+    var loadedCounter = 0;
+  var toBeLoadedNumber = urls.length;
+  urls.forEach(function(url){
+    preloadImage(url, function(){
+        loadedCounter++;
+            console.log('Number of loaded images: ' + loadedCounter);
+      if(loadedCounter == toBeLoadedNumber){
+        allImagesLoadedCallback();
+      }
+    });
+  });
+  function preloadImage(url, anImageLoadedCallback){
+      var img = new Image();
+      img.onload = anImageLoadedCallback;
+      img.src = url;
+  }
 }

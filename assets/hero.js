@@ -1,12 +1,12 @@
-// Let's call it:
 preloadImages([
+'https://static1.squarespace.com/static/5be585ad8f5130661d425e56/t/5dd79d920ab5465cb216ad17/1574411668257/main-transparent-1920x1080-01.png?format=2500w',
 '/assets/main-lighthouse-16x9-01.jpg',
 '/assets/main-lighthouse-16x9-alt-01.jpg',
 '/assets/main-beach-16x9-01.jpg',
 '/assets/main-lightning-alt-16x9-01.jpg',
 '/assets/main-greenhand-16x9-alt-less-green-01.jpg'
 ], function(){
-    console.log('All images were loaded');
+//    console.log('All images were loaded');
 });
 
 var loop = 0;
@@ -46,10 +46,8 @@ function loopStyling() {
         case 2:
             bodyID.classList.remove("hero02");
             bodyID.classList.add("hero03");
-            bodyID.classList.add("hero03-alt");
             break;
         case 3:
-            bodyID.classList.remove("hero03-alt");
             bodyID.classList.remove("hero03");
             bodyID.classList.add("hero04");
             break;
@@ -63,7 +61,7 @@ function preloadImages(urls, allImagesLoadedCallback){
   urls.forEach(function(url){
     preloadImage(url, function(){
         loadedCounter++;
-            console.log('Number of loaded images: ' + loadedCounter);
+//            console.log('Number of loaded images: ' + loadedCounter);
       if(loadedCounter == toBeLoadedNumber){
         allImagesLoadedCallback();
       }

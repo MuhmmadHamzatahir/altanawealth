@@ -49,8 +49,8 @@ function loopStyling() {
             bodyID.classList.add("hero03-alt");
             break;
         case 3:
+            bodyID.classList.remove("hero03-alt");
             bodyID.classList.remove("hero03");
-            bodyID.classList.add("hero03-alt");
             bodyID.classList.add("hero04");
             break;
     }

@@ -1,5 +1,5 @@
 (function(altana, undefined) {
-  altana.teamtailorSettings = {
+  window.teamtailorSettings = {
       widgetPosition: 'bottom-right',
       color: '#b89d18',
       company: 'altanawealth.teamtailor.com'
@@ -12,7 +12,7 @@
       var s = d.createElement('script');
       s.type = 'text/javascript';
       s.async = true;
-      s.src = '//' + altana.teamtailorSettings.company + '/widget';
+      s.src = '//' + w.teamtailorSettings.company + '/widget';
       var x = d.getElementsByTagName('script')[0];
       x.parentNode.insertBefore(s, x);
   }

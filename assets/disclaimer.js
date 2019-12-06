@@ -106,7 +106,7 @@
             if (altana.localStorageExists) { // IF Local storage exists, may not on some browsers
 
                 altana.acceptedDisclaimer = localStorage.getItem('acceptedDisclaimer');
-                altana.acceptedDateTimeUTC = localStorage.getItem('acceptedDateTimeUTC');
+                altana.acceptedDateTimeUTC = new Date(localStorage.getItem('acceptedDateTimeUTC'));
 
 
                 if (altana.acceptedDisclaimer)

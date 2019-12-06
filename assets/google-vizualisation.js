@@ -100,6 +100,7 @@
                     stroke: "#666",
                     fill: "#fff"
                 },
+                legend: {position: 'bottom', alignment: 'center'}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById(div));

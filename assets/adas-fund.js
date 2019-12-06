@@ -3,6 +3,7 @@
 function drawCharts(){
     altana.loadVisualization('existing/growth_aias.csv', altana.drawLine, 'adas-fund-line01');
     altana.loadVisualization('adas_monthly_perf_ALTDASA.csv', altana.drawPerfTable, 'adas-fund-table01', false, 2);
+    altana.loadVisualization('adas_monthly_perf_ALTDASA_net.csv', altana.drawPerfTable, 'adas-fund-table01net', false, 2);
     altana.loadVisualization('adas_monthly_perf_GS.csv', altana.drawPerfTable, 'adas-fund-table02', false, 2);
     altana.loadVisualization('adas_monthly_perf_HFRX.csv', altana.drawPerfTable, 'adas-fund-table03', false, 2);
     altana.loadVisualization('adas_monthly_perf_split_returns.csv', altana.drawPerfTable, 'adas-fund-table04', false, 2);

@@ -84,7 +84,7 @@
         // get name of page
         var thisPage = window.location.pathname.split('/').slice(-1)[0];
         console.log("this page <" + thisPage + ">");
-        console.log(localStorage);
+        console.log(localStorage.altana);
 
         // test if page exists in pagesRequiringDisclaimerAcceptance array
         var result = altana.pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;

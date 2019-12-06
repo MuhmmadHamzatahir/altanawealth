@@ -1,4 +1,4 @@
-(function(altana, undefined){
+(function(altana, undefined) {
 
     const docRoot = 'https://mybrightidea.squarespace.com/assets/chart-data/';
     //const docRoot = 'https://s3.amazonaws.com/cdn.altanawealth.com/public/csv/';
@@ -73,47 +73,33 @@
     altana.drawDonut = function(data, div) {
         // Set chart options
         var options = {
-            sliceVisibilityThreshold: 0.1,
-            pieResidueSliceColor: 'red',
-            pieSliceTextStyle: {
-                color: 'white'
-            },
-            pieSliceText: 'value',
-
-
-            slices: {
-                0: {
-                    color: darkblue,
-                    offset: 0.4
+                pieHole: 0.5,
+                pieSliceBorderColor: "#fff",
+                pieResidueSliceColor: "#ccc",
+                slices: [{
+                    offset: "#bf211e",
+                    color: "#bf211e"
+                }, {
+                    offset: "#f9dc5c",
+                    color: "#f9dc5c"
+                }, {
+                    offset: "#c2a303",
+                    color: "#c2a303"
+                }, {
+                    offset: "#e9ce2c",
+                    color: "#e9ce2c"
+                }, {
+                    offset: "#5e0b15",
+                    color: "#5e0b15"
+                }, {
+                    offset: "#d9cab3",
+                    color: "#d9cab3"
+                }],
+                height: 400,
+                backgroundColor: {
+                    stroke: "#666",
+                    fill: "#fff"
                 },
-                1: {
-                    color: lightblue
-                },
-                2: {
-                    color: '#6A5ACD'
-                },
-                3: {
-                    color: gold
-                },
-                4: {
-                    color: 'transparent'
-                },
-                5: {
-                    color: 'transparent'
-                },
-                6: {
-                    color: 'transparent'
-                },
-                7: {
-                    color: 'transparent'
-                },
-                8: {
-                    color: 'transparent'
-                },
-                9: {
-                    color: 'transparent'
-                }
-            }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById(div));
@@ -181,7 +167,7 @@
         altana.drawSummaryPerfTable(dataSubset, div);
     }
 
-    altana.drawSummaryPerfTable= function(data, div) {
+    altana.drawSummaryPerfTable = function(data, div) {
         var cssClassNames = {
             headerCell: 'ag-no-header',
             headerRow: 'ag-table-summary-hdr',
@@ -260,7 +246,7 @@
         return x < 0 ? y : '+' + y;
     }
 
-    altana.drawGauge= function(data, div) {
+    altana.drawGauge = function(data, div) {
 
         const fmt = new Intl.NumberFormat(undefined, {
             style: "decimal",

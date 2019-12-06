@@ -30,10 +30,12 @@
         pageName: "acbf-fund-information"
     }];
 
-    const debug = (1 === 1);
+    const debug = (1 === 2);
 
     altana.localStorageExists = false;
-    localStorage.altana = localStorage.altana || {};
+    altana.disclaimerInfo = {};
+    altana.acceptedDisclaimer = false;
+    altana.acceptedDateTimeUTC = null;
 
     window.addEventListener('DOMContentLoaded', function() {
 
@@ -84,7 +86,6 @@
         // get name of page
         var thisPage = window.location.pathname.split('/').slice(-1)[0];
         console.log("this page <" + thisPage + ">");
-        console.log(localStorage.altana);
 
         // test if page exists in pagesRequiringDisclaimerAcceptance array
         var result = altana.pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;
@@ -95,13 +96,19 @@
             if (debug) {
                 console.log("Page requires disclaimer to be accepted");
                 if (altana.localStorageExists && confirm("Clear local Storage?")) {
-                    localStorage.altana.clear();
+                    localStorage.removeItem('acceptedDisclaimer');
+                    localStorage.removeItem('acceptedDateTimeUTC');
                 }
             }
             // END debug only
 
             if (altana.localStorageExists) { // IF Local storage exists, may not on some browsers
-                if (localStorage.altana.acceptedDisclaimer)
+
+                altana.acceptedDisclaimer = localStorage.getItem('acceptedDisclaimer');
+                altana.acceptedDateTimeUTC = localStorage.getItem('acceptedDateTimeUTC');
+
+
+                if (altana.acceptedDisclaimer)
                 { // acceptedDisclaimer exists
                     var today = new Date();
                     var diffMs = (today - localStorage.altana.acceptedDateTimeUTC); // milliseconds difference
@@ -112,11 +119,11 @@
 
                 } // end acceptedDisclaimer exists
                 else { // acceptedDisclaimer NOT exists
-                    localStorage.altana.acceptedDisclaimer = false;
-                    localStorage.altana.acceptedDateTimeUTC = new Date();
+                    altana.acceptedDisclaimer = false;
+                    altana.acceptedDateTimeUTC = new Date();
                 } // end acceptedDisclaimer NOT exists
 
-                if (localStorage.altana.acceptedDisclaimer === 'false') {
+                if (altana.acceptedDisclaimer == false) {
                     altana.openDisclaimerPopUp();
                 }
             } // end Local storage exists

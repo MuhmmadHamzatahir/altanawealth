@@ -68,8 +68,8 @@
 
             localStorage.setItem('acceptedDisclaimer', true);
             localStorage.setItem('acceptedDateTimeUTC', new Date());
-            calledFromPage = window.location.href;
-            console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");
+            altana.calledFromPage = window.location.href;
+            console.log("Accepted: calledFromPage <" + altana.calledFromPage + "> this <" + altana.thisPage + ">");
         }
         altana.closeDisclaimerPopUp();
     }
@@ -80,8 +80,8 @@
             localStorage.setItem('acceptedDateTimeUTC', new Date());
         }
         altana.closeDisclaimerPopUp();
-        console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");
-        location.replace(calledFromPage);
+        console.log("Declined: calledFromPage <" + altana.calledFromPage + "> this <" + altana.thisPage + ">");
+        location.replace(altana.calledFromPage);
     }
 
     altana.testDisclaimerRequired = function() {

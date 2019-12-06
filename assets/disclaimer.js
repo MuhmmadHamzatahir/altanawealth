@@ -64,8 +64,9 @@
     altana.disclaimerAccepted = function() {
         console.log('Accepted');
         if (altana.localStorageExists) {
-            localStorage.altana.acceptedDisclaimer = true;
-            localStorage.altana.acceptedDateTimeUTC = new Date();
+
+            localStorage.setItem('acceptedDisclaimer', true);
+            localStorage.setItem('acceptedDateTimeUTC', new Date());
             calledFromPage = window.location.href;
             console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");
         }
@@ -74,8 +75,8 @@
     altana.disclaimerDeclined = function() {
         console.log('Declined');
         if (altana.localStorageExists) {
-            localStorage.altana.acceptedDisclaimer = false;
-            localStorage.altana.acceptedDateTimeUTC = new Date();
+            localStorage.setItem('acceptedDisclaimer', false);
+            localStorage.setItem('acceptedDateTimeUTC', new Date());
         }
         altana.closeDisclaimerPopUp();
         console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");

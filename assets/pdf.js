@@ -5,7 +5,7 @@
 
         //disclaimer will log to console for now then open in blank window when implemented logic to go in disclaimerGate function
         pdfTags.forEach(function(element) {
-            element.setAttribute("onclick", "disclaimerGate('" + element.href + "');");
+            element.setAttribute("onclick", "altana.disclaimerGate('" + element.href + "');");
             element.setAttribute("target", "_blank");
             element.removeAttribute("href");
             element.classList.add("disclaimer-file-href");

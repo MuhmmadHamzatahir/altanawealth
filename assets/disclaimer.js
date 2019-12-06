@@ -1,6 +1,7 @@
 (function(altana, undefined){
     altana.calledFromPage = "/";
     altana.thisPage = window.location.href;
+    const disclaimerAcceptanceLife = 7;
 
     altana.pagesRequiringDisclaimerAcceptance = [{
         pageName: "adas-fund-information"
@@ -115,13 +116,15 @@
                     var diffMs = (today - altana.acceptedDateTimeUTC); // milliseconds difference
                     var diffMins = diffMs / 60000; // minutes
 
-                    console.log('Disclaimer last accepted ' + diffMins.toFixed(2) + ' seconds ago');
+                    console.log('Disclaimer last accepted ' + diffMins.toFixed(2) + ' minutes ago');
 
+                    if (diffMins > disclaimerAcceptanceLife) {
+                        altana.acceptedDisclaimer = false;
+                    }
 
                 } // end acceptedDisclaimer exists
                 else { // acceptedDisclaimer NOT exists
                     altana.acceptedDisclaimer = false;
-                    altana.acceptedDateTimeUTC = new Date();
                 } // end acceptedDisclaimer NOT exists
 
                 if (altana.acceptedDisclaimer == false) {
@@ -134,9 +137,8 @@
             } // end Local storage NOT exists
         } else {
             if (debug) {
-                console.log("Page DOES NOT requires disclaimer to be accepted");
+                console.log("Page DOES NOT require disclaimer to be accepted");
             }
         }
     };
-
 })(window.altana = window.altana || {});

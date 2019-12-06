@@ -1,8 +1,8 @@
-(function(altana, undefined) {
-    var altana.calledFromPage = "/";
-    var altana.thisPage = window.location.href;
+(function(altana, undefined){
+    altana.calledFromPage = "/";
+    altana.thisPage = window.location.href;
 
-    var altana.pagesRequiringDisclaimerAcceptance = [{
+    altana.pagesRequiringDisclaimerAcceptance = [{
         pageName: "adas-fund-information"
     }, {
         pageName: "tbf-fund-information"
@@ -130,4 +130,5 @@
             }
         }
     };
+
 })(window.altana = window.altana || {});

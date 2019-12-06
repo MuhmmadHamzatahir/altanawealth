@@ -3,7 +3,7 @@
     altana.loadVisualization('existing/global_map.csv', altana.drawMap, 'adas-dir-map01');
     altana.loadVisualization('existing/director_activity_ratio.csv', altana.drawGauge, 'adas-dir-gauge01');
     altana.loadVisualization('existing/eu_director_activity_ratio.csv', altana.drawGauge, 'adas-dir-gauge02');
-    altana.loadVisualization('existing/au_director_activity_ratio.csv', altana.drawGauge, 'adas-dir-gauge03');
+//    altana.loadVisualization('existing/au_director_activity_ratio.csv', altana.drawGauge, 'adas-dir-gauge03');
     }
     function drawGoogleVisualizations() {
         // Load the Visualization API and the corechart package.

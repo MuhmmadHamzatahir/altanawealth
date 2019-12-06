@@ -1,7 +1,7 @@
 (function(altana, undefined){
     altana.calledFromPage = "/";
     altana.thisPage = window.location.href;
-    const disclaimerAcceptanceLife = 7;
+    const disclaimerAcceptanceLifeDays = 7;
 
     altana.pagesRequiringDisclaimerAcceptance = [{
         pageName: "adas-fund-information"
@@ -114,11 +114,9 @@
                 { // acceptedDisclaimer exists
                     var today = new Date();
                     var diffMs = (today - altana.acceptedDateTimeUTC); // milliseconds difference
-                    var diffMins = diffMs / 60000; // minutes
+                    var diffDays = diffMs /( 1000 * 60 * 60 * 24); // days
 
-                    console.log('Disclaimer last accepted ' + diffMins.toFixed(2) + ' minutes ago');
-
-                    if (diffMins > disclaimerAcceptanceLife) {
+                    if (diffDays > disclaimerAcceptanceLifeDays) {
                         altana.acceptedDisclaimer = false;
                     }
 

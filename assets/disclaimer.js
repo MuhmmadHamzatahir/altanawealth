@@ -84,7 +84,7 @@
 
     altana.testDisclaimerRequired = function() {
         // get name of page
-        var altana.thisPage = window.location.pathname.split('/').slice(-1)[0];
+        altana.thisPage = window.location.pathname.split('/').slice(-1)[0];
         console.log("this page <" + altana.thisPage + ">");
 
         // test if page exists in pagesRequiringDisclaimerAcceptance array

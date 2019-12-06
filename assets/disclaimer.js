@@ -1,8 +1,8 @@
 (function(altana, undefined) {
-    var calledFromPage = "/";
-    var thisPage = window.location.href;
+    var altana.calledFromPage = "/";
+    var altana.thisPage = window.location.href;
 
-    var pagesRequiringDisclaimerAcceptance = [{
+    var altana.pagesRequiringDisclaimerAcceptance = [{
         pageName: "adas-fund-information"
     }, {
         pageName: "tbf-fund-information"
@@ -37,24 +37,24 @@
 
     window.addEventListener('DOMContentLoaded', function() {
 
-        thisPage = window.location.href;
+        altana.thisPage = window.location.href;
         altana.localStorageExists = (typeof(Storage) !== "undefined");
 
-        closeDisclaimerPopUp();
+        altana.closeDisclaimerPopUp();
 
         document.getElementById('disclaimer-accept').addEventListener("click", altana.disclaimerAccepted);
         document.getElementById('disclaimer-decline').addEventListener("click", altana.disclaimerDeclined);
         document.getElementById('disclaimer-close').addEventListener("click", altana.disclaimerDeclined);
 
-        testDisclaimerRequired();
+        altana.testDisclaimerRequired();
     });
 
-    function openDisclaimerPopUp() {
+    altana.openDisclaimerPopUp = function() {
         document.getElementById('disclaimer-page').style.display = 'flex'; // show
         document.getElementById('cover').style.display = 'block';
     }
 
-    function closeDisclaimerPopUp() {
+    altana.closeDisclaimerPopUp = function() {
         document.getElementById('disclaimer-page').style.display = 'none';
         document.getElementById('cover').style.display = 'none';
     }
@@ -67,7 +67,7 @@
             calledFromPage = window.location.href;
             console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
         }
-        closeDisclaimerPopUp();
+        altana.closeDisclaimerPopUp();
     }
     altana.disclaimerDeclined = function() {
         console.log('Declined');
@@ -75,19 +75,19 @@
             localStorage.altana.acceptedDisclaimer = false;
             localStorage.altana.acceptedDateTimeUTC = new Date();
         }
-        closeDisclaimerPopUp();
+        altana.closeDisclaimerPopUp();
         console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
         location.replace(calledFromPage);
     }
 
-    function testDisclaimerRequired() {
+    altana.testDisclaimerRequired = function() {
         // get name of page
         var thisPage = window.location.pathname.split('/').slice(-1)[0];
         console.log("this page <" + thisPage + ">");
         console.log(localStorage);
 
         // test if page exists in pagesRequiringDisclaimerAcceptance array
-        var result = pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;
+        var result = altana.pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;
 
         if (result != 0) {
 
@@ -117,12 +117,12 @@
                 } // end acceptedDisclaimer NOT exists
 
                 if (localStorage.altana.acceptedDisclaimer === 'false') {
-                    openDisclaimerPopUp();
+                    altana.openDisclaimerPopUp();
                 }
             } // end Local storage exists
             else { // Local storage NOT exists so have to ask every time since have no ability to store
                 // can add session permanence via global JS variable
-                openDisclaimerPopUp();
+                altana.openDisclaimerPopUp();
             } // end Local storage NOT exists
         } else {
             if (debug) {

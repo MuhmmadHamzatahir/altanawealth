@@ -17,7 +17,7 @@
             bodyID.classList.add("altana-not-mobile");
             bodyID.classList.remove("altana-mobile");
         }
-        console.log("<" + navigator.userAgent + "><" + usingOnMobile + ">");
+        //        console.log("<" + navigator.userAgent + "><" + usingOnMobile + ">");
     };
 
     function detectmob() {

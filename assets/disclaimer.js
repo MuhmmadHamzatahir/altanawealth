@@ -67,7 +67,7 @@
             localStorage.altana.acceptedDisclaimer = true;
             localStorage.altana.acceptedDateTimeUTC = new Date();
             calledFromPage = window.location.href;
-            console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
+            console.log("Accepted: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");
         }
         altana.closeDisclaimerPopUp();
     }
@@ -78,17 +78,17 @@
             localStorage.altana.acceptedDateTimeUTC = new Date();
         }
         altana.closeDisclaimerPopUp();
-        console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + thisPage + ">");
+        console.log("Declined: calledFromPage <" + calledFromPage + "> this <" + altana.thisPage + ">");
         location.replace(calledFromPage);
     }
 
     altana.testDisclaimerRequired = function() {
         // get name of page
-        var thisPage = window.location.pathname.split('/').slice(-1)[0];
-        console.log("this page <" + thisPage + ">");
+        var altana.thisPage = window.location.pathname.split('/').slice(-1)[0];
+        console.log("this page <" + altana.thisPage + ">");
 
         // test if page exists in pagesRequiringDisclaimerAcceptance array
-        var result = altana.pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === thisPage).length;
+        var result = altana.pagesRequiringDisclaimerAcceptance.filter(x => x.pageName === altana.thisPage).length;
 
         if (result != 0) {
 

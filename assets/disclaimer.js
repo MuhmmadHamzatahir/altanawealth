@@ -33,7 +33,7 @@
     const debug = (1 === 1);
 
     altana.localStorageExists = false;
-    localstorage.altana = localstorage.altana || {};
+    localStorage.altana = localStorage.altana || {};
 
     window.addEventListener('DOMContentLoaded', function() {
 

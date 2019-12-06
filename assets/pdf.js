@@ -17,7 +17,7 @@
         return fileExtensions.some(o => (a.href.toLowerCase()).includes(o));
     }
 
-    function disclaimerGate(href) {
+    altana.disclaimerGate = function(href) {
         console.log(href);
 
         if (typeof attributes === 'undefined') {

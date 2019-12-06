@@ -112,7 +112,7 @@
                 if (altana.acceptedDisclaimer)
                 { // acceptedDisclaimer exists
                     var today = new Date();
-                    var diffMs = (today - localStorage.altana.acceptedDateTimeUTC); // milliseconds difference
+                    var diffMs = (today - altana.acceptedDateTimeUTC); // milliseconds difference
                     var diffMins = diffMs / 60000; // minutes
 
                     console.log('Disclaimer last accepted ' + diffMins.toFixed(2) + ' seconds ago');

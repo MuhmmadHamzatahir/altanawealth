@@ -1,9 +1,10 @@
 Sector,Exposure
-Consumer Non-cyclical,19.70
-Consumer Cyclical,17.25
-Financial,14.87
-Industrial,9.94
-Technology,7.49
-Energy,6.82
-Basic Materials,5.00
-Communications,4.84
+Communications,25.54
+"Consumer, Non-cyclical",18.66
+Financial,16.25
+Energy,11.34
+Industrial,10.06
+"Consumer, Cyclical",7.20
+Basic Materials,2.67
+Technology,2.00
+Utilities,1.96

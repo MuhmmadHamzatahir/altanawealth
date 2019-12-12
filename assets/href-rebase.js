@@ -4,7 +4,7 @@
         var hrefs = Array.from(document.getElementsByTagName("A")).filter(linkOfInterest);
 
         //disclaimer will log to console for now then open in blank window when implemented logic to go in disclaimerGate function
-        pdfTags.forEach(function(element) {
+        hrefs.forEach(function(element) {
 //                element.href = href;
             console.log(element.href);
         });

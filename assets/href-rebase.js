@@ -8,7 +8,6 @@
         //disclaimer will log to console for now then open in blank window when implemented logic to go in disclaimerGate function
         hrefs.forEach(function(element) {
             element.href = element.href.replace(searchValue, newValue);
-            console.log(element.href);
         });
     };
 

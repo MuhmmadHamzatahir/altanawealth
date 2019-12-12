@@ -1,17 +1,19 @@
 (function(altana, undefined) {
+    const searchValue = "mybrightidea.squarespace.com";
+    const newvalue = "www.altanawealth.com";
     function reBaseHrefs() {
         // get list of href to files
         var hrefs = Array.from(document.getElementsByTagName("A")).filter(linkOfInterest);
 
         //disclaimer will log to console for now then open in blank window when implemented logic to go in disclaimerGate function
         hrefs.forEach(function(element) {
-//                element.href = href;
+            element.href = element.href.replace(searchvalue, newvalue);
             console.log(element.href);
         });
     };
 
     function linkOfInterest(a) {
-        let soughtAddress = ["mybrightidea.squarespace.com"];
+        let soughtAddress = [searchValue];
         return soughtAddress.some(o => (a.href.toLowerCase()).includes(o));
     }
 

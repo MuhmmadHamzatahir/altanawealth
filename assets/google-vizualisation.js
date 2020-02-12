@@ -35,9 +35,9 @@
         perfData = new google.visualization.DataTable();
 
         // create columns
-        perfData.addColumn('string', data.vg[0].label);
-        for (var i = 1; i < data.vg.length; ++i) {
-            perfData.addColumn('number', data.vg[i].label);
+        perfData.addColumn('string', data.Ff[0].label);
+        for (var i = 1; i < data.Ff.length; ++i) {
+            perfData.addColumn('number', data.Ff[i].label);
         }
 
         // create rows
@@ -339,7 +339,6 @@
     function loadVizCallBack(xml, chartLoader, div, param1, param2) {
         var tableData = stringTo2dArray(xml.responseText, '\n', ',');
         tableData = tableData.slice(0, tableData.length - 1);
-
         chartLoader(google.visualization.arrayToDataTable(tableData), div, param1, param2);
     }
 

@@ -11,10 +11,10 @@
         var timeSeriesData;
         timeSeriesData = new google.visualization.DataTable();
 
-        timeSeriesData.addColumn('string', data.Ff[0].label);
+        timeSeriesData.addColumn('string', data.Kf[0].label);
 
-        for (var i = 1; i < data.Ff.length; ++i) {
-            timeSeriesData.addColumn('number', data.Ff[i].label);
+        for (var i = 1; i < data.Kf.length; ++i) {
+            timeSeriesData.addColumn('number', data.Kf[i].label);
         }
 
         const origRows = data.getNumberOfRows();
@@ -22,7 +22,7 @@
 
         for (var i = 0; i < data.getNumberOfRows(); i++) {
             timeSeriesData.setCell(i, 0, data.getValue(i, 0));
-            for (var j = 1; j < data.Ff.length; ++j) {
+            for (var j = 1; j < data.Kf.length; ++j) {
                 timeSeriesData.setCell(i, j, parseFloat(data.getValue(i, j)));
             };
         }
@@ -35,9 +35,9 @@
         perfData = new google.visualization.DataTable();
 
         // create columns
-        perfData.addColumn('string', data.Ff[0].label);
-        for (var i = 1; i < data.Ff.length; ++i) {
-            perfData.addColumn('number', data.Ff[i].label);
+        perfData.addColumn('string', data.Kf[0].label);
+        for (var i = 1; i < data.Kf.length; ++i) {
+            perfData.addColumn('number', data.Kf[i].label);
         }
 
         // create rows

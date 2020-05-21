@@ -35,6 +35,7 @@
         perfData = new google.visualization.DataTable();
 
         // create columns
+        console.log(data);
         perfData.addColumn('string', data.Kf[0].label);
         for (var i = 1; i < data.Kf.length; ++i) {
             perfData.addColumn('number', data.Kf[i].label);

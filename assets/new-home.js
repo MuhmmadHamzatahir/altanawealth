@@ -1,8 +1,8 @@
 var strapLines = [
-{strap1: 'Using sophisticated tools', strap2: '... to simplify investing and reduce risk'},
-{strap1: 'Markets change', strap2: '... we adapt'},
-{strap1: 'Seeking out alpha', strap2: '... where others dont look'},
-{strap1: 'True alignment of interest', strap2: '... we always co-invest'},
+    { strap1: 'Using sophisticated tools', strap2: 'We simplify investing and reduce risk'},
+    { strap1: 'Markets change', strap2: 'We adapt'},
+    { strap1: 'Seeking out alpha', strap2: 'We find opportunity where others fail to look'},
+    { strap1: 'True alignment of interest', strap2: 'We always co-invest'},
 ];
 
 

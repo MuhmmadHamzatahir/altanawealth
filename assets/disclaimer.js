@@ -22,6 +22,8 @@
     }, {
         pageName: "adas-directors-report-asia"
     }, {
+        pageName: "acof-strategy-information"
+    }, {
         pageName: "adof-strategy-information"
     }, {
         pageName: "aspa-strategy-information"

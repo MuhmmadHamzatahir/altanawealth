@@ -1,37 +1,41 @@
-(function(altana, undefined){
+(function(altana, undefined) {
     altana.calledFromPage = "/";
     altana.thisPage = window.location.href;
     const disclaimerAcceptanceLifeDays = 7;
 
     altana.pagesRequiringDisclaimerAcceptance = [{
-        pageName: "adas-fund-information"
-    }, {
-        pageName: "tbf-fund-information"
-    }, {
-        pageName: "acf-fund-information"
-    }, {
-        pageName: "actf-strategy-information"
-    }, {
-        pageName: "adcf-strategy-information"
-    }, {
-        pageName: "adas-research-and-sentiment-data"
-    }, {
-        pageName: "adas-directors-report-us"
-    }, {
-        pageName: "adas-directors-report-europe"
-    }, {
-        pageName: "adas-directors-report-asia"
-    }, {
-        pageName: "acof-strategy-information"
-    }, {
-        pageName: "adof-strategy-information"
-    }, {
-        pageName: "aspa-strategy-information"
-    }, {
-        pageName: "pssif-fund-information"
-    }, {
-        pageName: "acbf-fund-information"
-    }];
+            pageName: "adas-fund-information"
+        }, {
+            pageName: "tbf-fund-information"
+        }, {
+            pageName: "acf-fund-information"
+        }, {
+            pageName: "actf-strategy-information"
+        }, {
+            pageName: "adcf-strategy-information"
+        }, {
+            pageName: "adas-research-and-sentiment-data"
+        }, {
+            pageName: "adas-directors-report-us"
+        }, {
+            pageName: "adas-directors-report-europe"
+        }, {
+            pageName: "adas-directors-report-asia"
+        }, {
+            pageName: "acof-strategy-information"
+        }, {
+            pageName: "adof-strategy-information"
+        }, {
+            pageName: "aspa-strategy-information"
+        }, {
+            pageName: "pssif-fund-information"
+        }, {
+            pageName: "acsaf-fund-information"
+        },
+        {
+            pageName: "acbf-fund-information"
+        }
+    ];
 
     const debug = (1 === 2);
 
@@ -112,11 +116,10 @@
                 altana.acceptedDateTimeUTC = new Date(localStorage.getItem('acceptedDateTimeUTC'));
 
 
-                if (altana.acceptedDisclaimer)
-                { // acceptedDisclaimer exists
+                if (altana.acceptedDisclaimer) { // acceptedDisclaimer exists
                     var today = new Date();
                     var diffMs = (today - altana.acceptedDateTimeUTC); // milliseconds difference
-                    var diffDays = diffMs /( 1000 * 60 * 60 * 24); // days
+                    var diffDays = diffMs / (1000 * 60 * 60 * 24); // days
 
                     if (diffDays > disclaimerAcceptanceLifeDays) {
                         altana.acceptedDisclaimer = false;

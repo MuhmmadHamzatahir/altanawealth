@@ -11,10 +11,10 @@
         var timeSeriesData;
         timeSeriesData = new google.visualization.DataTable();
 
-        timeSeriesData.addColumn('string', data.If[0].label);
+        timeSeriesData.addColumn('string', data.cf[0].label);
 
-        for (var i = 1; i < data.If.length; ++i) {
-            timeSeriesData.addColumn('number', data.If[i].label);
+        for (var i = 1; i < data.cf.length; ++i) {
+            timeSeriesData.addColumn('number', data.cf[i].label);
         }
 
         const origRows = data.getNumberOfRows();
@@ -22,7 +22,7 @@
 
         for (var i = 0; i < data.getNumberOfRows(); i++) {
             timeSeriesData.setCell(i, 0, data.getValue(i, 0));
-            for (var j = 1; j < data.If.length; ++j) {
+            for (var j = 1; j < data.cf.length; ++j) {
                 timeSeriesData.setCell(i, j, parseFloat(data.getValue(i, j)));
             };
         }
@@ -36,9 +36,9 @@
 
         // create columns
         console.log(data);
-        perfData.addColumn('string', data.If[0].label);
-        for (var i = 1; i < data.If.length; ++i) {
-            perfData.addColumn('number', data.If[i].label);
+        perfData.addColumn('string', data.cf[0].label);
+        for (var i = 1; i < data.cf.length; ++i) {
+            perfData.addColumn('number', data.cf[i].label);
         }
 
         // create rows
@@ -74,34 +74,34 @@
     altana.drawDonut = function(data, div) {
         // Set chart options
         var options = {
-                pieHole: 0.5,
-                pieSliceBorderColor: "#fff",
-                pieResidueSliceColor: "#ccc",
-                slices: [{
-                    offset: "#bf211e",
-                    color: "#bf211e"
-                }, {
-                    offset: "#f9dc5c",
-                    color: "#f9dc5c"
-                }, {
-                    offset: "#c2a303",
-                    color: "#c2a303"
-                }, {
-                    offset: "#e9ce2c",
-                    color: "#e9ce2c"
-                }, {
-                    offset: "#5e0b15",
-                    color: "#5e0b15"
-                }, {
-                    offset: "#d9cab3",
-                    color: "#d9cab3"
-                }],
-                height: 400,
-                backgroundColor: {
-                    stroke: "#666",
-                    fill: "#fff"
-                },
-                legend: {position: 'bottom', alignment: 'center'}
+            pieHole: 0.5,
+            pieSliceBorderColor: "#fff",
+            pieResidueSliceColor: "#ccc",
+            slices: [{
+                offset: "#bf211e",
+                color: "#bf211e"
+            }, {
+                offset: "#f9dc5c",
+                color: "#f9dc5c"
+            }, {
+                offset: "#c2a303",
+                color: "#c2a303"
+            }, {
+                offset: "#e9ce2c",
+                color: "#e9ce2c"
+            }, {
+                offset: "#5e0b15",
+                color: "#5e0b15"
+            }, {
+                offset: "#d9cab3",
+                color: "#d9cab3"
+            }],
+            height: 400,
+            backgroundColor: {
+                stroke: "#666",
+                fill: "#fff"
+            },
+            legend: { position: 'bottom', alignment: 'center' }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById(div));

@@ -84,7 +84,15 @@
         }, {
             pageName: 'adof-strategy-information',
             fundClass: 'adof'
+        },
+        {
+            pageName: 'aspac-overview',
+            fundClass: 'aspac'
         }, {
+            pageName: 'aspac-strategy-information',
+            fundClass: 'aspac'
+        },
+        {
             pageName: 'all-funds-documents',
             fundClass: ''
         }, {

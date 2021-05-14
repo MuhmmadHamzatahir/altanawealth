@@ -25,7 +25,11 @@
             pageName: "acof-strategy-information"
         }, {
             pageName: "adof-strategy-information"
-        }, {
+        },
+        {
+            pageName: "aspac-strategy-information"
+        },
+        {
             pageName: "aspa-strategy-information"
         }, {
             pageName: "pssif-fund-information"

@@ -30,6 +30,9 @@
             pageName: 'apas-strategy-information',
             fundClass: 'apas'
         }, {
+            pageName: 'acfo-strategy-information',
+            fundClass: 'acfo'
+        }, {
             pageName: 'tbf-overview',
             fundClass: 'tbf'
         }, {

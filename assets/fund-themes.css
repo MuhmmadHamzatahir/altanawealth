@@ -324,41 +324,41 @@
     color: #fff !important
 }
 
-.page-with-fund-headers.actf .fund-header,
-.page-with-fund-headers.actf.fund-header,
-.page-with-fund-headers .actf .fund-header,
-.page-with-fund-headers .actf.fund-header {
+.page-with-fund-headers.asf .fund-header,
+.page-with-fund-headers.asf.fund-header,
+.page-with-fund-headers .asf .fund-header,
+.page-with-fund-headers .asf.fund-header {
     background-color: #9bb1c1
 }
 
-.page-with-fund-headers.actf .fund-header h1,
-.page-with-fund-headers.actf .fund-header h2,
-.page-with-fund-headers.actf.fund-header h1,
-.page-with-fund-headers.actf.fund-header h2,
-.page-with-fund-headers .actf .fund-header h1,
-.page-with-fund-headers .actf .fund-header h2,
-.page-with-fund-headers .actf.fund-header h1,
-.page-with-fund-headers .actf.fund-header h2 {
+.page-with-fund-headers.asf .fund-header h1,
+.page-with-fund-headers.asf .fund-header h2,
+.page-with-fund-headers.asf.fund-header h1,
+.page-with-fund-headers.asf.fund-header h2,
+.page-with-fund-headers .asf .fund-header h1,
+.page-with-fund-headers .asf .fund-header h2,
+.page-with-fund-headers .asf.fund-header h1,
+.page-with-fund-headers .asf.fund-header h2 {
     color: #fff
 }
 
-.page-with-fund-headers.actf.fund-button,
-.page-with-fund-headers.actf .fund-button,
-.page-with-fund-headers.actf .sqs-block-button a,
-.page-with-fund-headers .actf.fund-button,
-.page-with-fund-headers .actf .fund-button,
-.page-with-fund-headers .actf .sqs-block-button a {
+.page-with-fund-headers.asf.fund-button,
+.page-with-fund-headers.asf .fund-button,
+.page-with-fund-headers.asf .sqs-block-button a,
+.page-with-fund-headers .asf.fund-button,
+.page-with-fund-headers .asf .fund-button,
+.page-with-fund-headers .asf .sqs-block-button a {
     color: #9bb1c1 !important;
     border-color: #9bb1c1 !important;
     background-color: transparent
 }
 
-.page-with-fund-headers.actf.fund-button:hover,
-.page-with-fund-headers.actf .fund-button:hover,
-.page-with-fund-headers.actf .sqs-block-button a:hover,
-.page-with-fund-headers .actf.fund-button:hover,
-.page-with-fund-headers .actf .fund-button:hover,
-.page-with-fund-headers .actf .sqs-block-button a:hover {
+.page-with-fund-headers.asf.fund-button:hover,
+.page-with-fund-headers.asf .fund-button:hover,
+.page-with-fund-headers.asf .sqs-block-button a:hover,
+.page-with-fund-headers .asf.fund-button:hover,
+.page-with-fund-headers .asf .fund-button:hover,
+.page-with-fund-headers .asf .sqs-block-button a:hover {
     background-color: #9bb1c1 !important;
     color: #fff !important
 }

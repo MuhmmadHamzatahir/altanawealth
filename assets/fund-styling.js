@@ -57,11 +57,11 @@
             pageName: 'acf-fund-information',
             fundClass: 'acf'
         }, {
-            pageName: 'actf-overview',
-            fundClass: 'actf'
+            pageName: 'asf-overview',
+            fundClass: 'asf'
         }, {
-            pageName: 'actf-strategy-information',
-            fundClass: 'actf'
+            pageName: 'asf-strategy-information',
+            fundClass: 'asf'
         }, {
             pageName: 'adcf-overview',
             fundClass: 'adcf'

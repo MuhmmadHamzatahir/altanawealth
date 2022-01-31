@@ -39,11 +39,11 @@
             pageName: 'tbf-fund-information',
             fundClass: 'tbf'
         }, {
-            pageName: 'pssif-overview',
-            fundClass: 'pssif'
+            pageName: 'asip-overview',
+            fundClass: 'asip'
         }, {
-            pageName: 'pssif-fund-information',
-            fundClass: 'pssif'
+            pageName: 'asip-fund-information',
+            fundClass: 'asip'
         }, {
             pageName: 'aspa-overview',
             fundClass: 'aspa'

@@ -80,6 +80,12 @@
         }, {
             pageName: 'acsaf-strategy-information',
             fundClass: 'acsaf'
+        }, {
+            pageName: 'agcf-overview',
+            fundClass: 'agcf'
+        }, {
+            pageName: 'agcf-strategy-information',
+            fundClass: 'agcf'
         },
         {
             pageName: 'adof-overview',

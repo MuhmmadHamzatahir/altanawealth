@@ -168,6 +168,45 @@
     color: #fff !important
 }
 
+.page-with-fund-headers.agcf .fund-header,
+.page-with-fund-headers.agcf.fund-header,
+.page-with-fund-headers .agcf .fund-header,
+.page-with-fund-headers .agcf.fund-header {
+    background-color: #0c2340
+}
+
+.page-with-fund-headers.agcf .fund-header h1,
+.page-with-fund-headers.agcf .fund-header h2,
+.page-with-fund-headers.agcf.fund-header h1,
+.page-with-fund-headers.agcf.fund-header h2,
+.page-with-fund-headers .agcf .fund-header h1,
+.page-with-fund-headers .agcf .fund-header h2,
+.page-with-fund-headers .agcf.fund-header h1,
+.page-with-fund-headers .agcf.fund-header h2 {
+    color: #fff
+}
+
+.page-with-fund-headers.agcf.fund-button,
+.page-with-fund-headers.agcf .fund-button,
+.page-with-fund-headers.agcf .sqs-block-button a,
+.page-with-fund-headers .agcf.fund-button,
+.page-with-fund-headers .agcf .fund-button,
+.page-with-fund-headers .agcf .sqs-block-button a {
+    color: #0c2340 !important;
+    border-color: #0c2340 !important;
+    background-color: transparent
+}
+
+.page-with-fund-headers.agcf.fund-button:hover,
+.page-with-fund-headers.agcf .fund-button:hover,
+.page-with-fund-headers.agcf .sqs-block-button a:hover,
+.page-with-fund-headers .agcf.fund-button:hover,
+.page-with-fund-headers .agcf .fund-button:hover,
+.page-with-fund-headers .agcf .sqs-block-button a:hover {
+    background-color: #0c2340 !important;
+    color: #fff !important
+}
+
 .page-with-fund-headers.adas .fund-header,
 .page-with-fund-headers.adas.fund-header,
 .page-with-fund-headers .adas .fund-header,

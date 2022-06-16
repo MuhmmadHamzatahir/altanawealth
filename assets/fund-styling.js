@@ -69,6 +69,12 @@
             pageName: 'adcf-strategy-information',
             fundClass: 'adcf'
         }, {
+            pageName: 'adaf-overview',
+            fundClass: 'adaf'
+        }, {
+            pageName: 'adaf-strategy-information',
+            fundClass: 'adaf'
+        }, {
             pageName: 'acof-overview',
             fundClass: 'acof'
         }, {

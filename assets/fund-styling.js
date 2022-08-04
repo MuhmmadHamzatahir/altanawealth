@@ -101,11 +101,11 @@
             fundClass: 'adof'
         },
         {
-            pageName: 'aspac-overview',
-            fundClass: 'aspac'
+            pageName: 'scaf-overview',
+            fundClass: 'scaf'
         }, {
-            pageName: 'aspac-strategy-information',
-            fundClass: 'aspac'
+            pageName: 'scaf-strategy-information',
+            fundClass: 'scaf'
         },
         {
             pageName: 'all-funds-documents',

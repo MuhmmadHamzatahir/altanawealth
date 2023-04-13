@@ -101,6 +101,13 @@
             fundClass: 'adof'
         },
         {
+            pageName: 'aaof-overview',
+            fundClass: 'aaof'
+        }, {
+            pageName: 'aaof-strategy-information',
+            fundClass: 'aaof'
+        },
+        {
             pageName: 'scaf-overview',
             fundClass: 'scaf'
         }, {

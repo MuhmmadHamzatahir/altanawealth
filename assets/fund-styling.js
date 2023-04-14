@@ -108,6 +108,13 @@
             fundClass: 'aaof'
         },
         {
+            pageName: 'aci-overview',
+            fundClass: 'aci'
+        }, {
+            pageName: 'aci-strategy-information',
+            fundClass: 'aci'
+        },
+        {
             pageName: 'scaf-overview',
             fundClass: 'scaf'
         }, {

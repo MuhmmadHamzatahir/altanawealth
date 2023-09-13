@@ -4,6 +4,8 @@
     const disclaimerAcceptanceLifeDays = 7;
 
     altana.pagesRequiringDisclaimerAcceptance = [{
+            pageName: "all-funds-documents"
+        }, {
             pageName: "adas-fund-information"
         }, {
             pageName: "tbf-fund-information"

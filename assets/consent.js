@@ -4,7 +4,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
-$(document).ready(function () {
+$(document).ready(function() {
     const arcus_main_site = "altanawealth.com";
     const arcus_pro_site = "www.altanawealth.com";
 

@@ -14,9 +14,9 @@ $(document).ready(function () {
     $("#seek_advice").hide();
     $("#disclaimer-container").hide();
 
-    // $("#consent_popup #country-select").on("change", function () {
-    //     setDislaimer();
-    // });
+    $("#consent_popup #country-select").on("change", function () {
+        setDislaimer();
+    });
 
     $("#disclaimer-container").bind("scroll", function () {
         const disclaimerContainer = document.getElementById("disclaimer-container");
@@ -68,7 +68,7 @@ $(document).ready(function () {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        // const region = $("#consent_popup #country-select").find(":selected").val();
+        const region = $("#consent_popup #country-select").find(":selected").val();
         const d = new Date();
         d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
 
@@ -85,7 +85,7 @@ $(document).ready(function () {
             path,
             domain,
         ].join(";");
-        // document.cookie = ["region=" + region, expires, path, domain].join(";");
+        document.cookie = ["region=" + region, expires, path, domain].join(";");
     }
 
     function setDislaimer() {
@@ -96,23 +96,24 @@ $(document).ready(function () {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        // const region = $("#consent_popup #country-select").find(":selected").val();
+        const region = $("#consent_popup #country-select").find(":selected").val();
 
         $("#consent_popup .disclaimer").children().addClass("hidden");
         const div = $(
             "#consent_popup .disclaimer div[data-investor-type=" +
             investor_type +
+            "][data-region=" +
+            region +
             "]"
         );
         if (div.length) div.removeClass("hidden");
     }
 
     function checkRedirect() {
-        // const region = getCookie("region");
+        const region = getCookie("region");
         const investor_type = getCookie("investor_type");
 
-        // if (Boolean(region) && Boolean(investor_type)) {
-        if (Boolean(investor_type)) {
+        if (Boolean(region) && Boolean(investor_type)) {
             const pathAndQuery = window.location.pathname + window.location.search;
 
             if (

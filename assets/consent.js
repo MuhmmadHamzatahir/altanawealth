@@ -1,0 +1,135 @@
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
+$(document).ready(function () {
+    const arcus_main_site = "altanawealth.com";
+    const arcus_pro_site = "www.altanawealth.com";
+
+    checkRedirect();
+
+    $("#consent_popup .continue").prop("disabled", true);
+    $("#seek_advice").hide();
+    $("#disclaimer-container").hide();
+
+    // $("#consent_popup #country-select").on("change", function () {
+    //     setDislaimer();
+    // });
+
+    $("#disclaimer-container").bind("scroll", function () {
+        const disclaimerContainer = document.getElementById("disclaimer-container");
+
+        if (
+            Math.ceil(
+                disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
+            ) === disclaimerContainer.clientHeight &&
+            $("#consent_popup .continue").prop("disabled") === true
+        ) {
+            $("#consent_popup .continue").prop("disabled", false);
+        }
+    });
+
+    $("#consent_popup input[type=radio][name=investor_type]").on(
+        "change",
+        function () {
+            const investor_type = $(
+                "#consent_popup input[type=radio][name=investor_type]:checked"
+            ).val();
+
+            if (investor_type === "non-professional") {
+                $("#seek_advice").show();
+                $("#disclaimer-container").hide();
+            } else {
+                $("#seek_advice").hide();
+                $("#disclaimer-container").show();
+            }
+
+            setDislaimer();
+        }
+    );
+
+    $("#consent_popup .continue").on("click", function () {
+        setCookie();
+
+        checkRedirect();
+
+        $("#consent_popup").fadeOut();
+        setTimeout(function () {
+            $(".modal-backdrop").hide();
+            $("body").removeClass("modal-open");
+            $("body").css("padding-right", "");
+            $("html").removeClass("hidden-class");
+        }, 1000);
+    });
+
+    function setCookie() {
+        const investor_type = $(
+            "#consent_popup input[type=radio][name=investor_type]:checked"
+        ).val();
+        // const region = $("#consent_popup #country-select").find(":selected").val();
+        const d = new Date();
+        d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+
+        const expires = "expires=" + d.toUTCString();
+        const path = "path=/";
+        const domain = "domain=" + arcus_main_site;
+
+        document.cookie = ["consent-disclaimer=true", expires, path, domain].join(
+            ";"
+        );
+        document.cookie = [
+            "investor_type=" + investor_type,
+            expires,
+            path,
+            domain,
+        ].join(";");
+        // document.cookie = ["region=" + region, expires, path, domain].join(";");
+    }
+
+    function setDislaimer() {
+        const disclaimerContainer = document.getElementById("disclaimer-container");
+        disclaimerContainer.scrollTop = 0;
+        $("#consent_popup .continue").prop("disabled", true);
+
+        const investor_type = $(
+            "#consent_popup input[type=radio][name=investor_type]:checked"
+        ).val();
+        // const region = $("#consent_popup #country-select").find(":selected").val();
+
+        $("#consent_popup .disclaimer").children().addClass("hidden");
+        const div = $(
+            "#consent_popup .disclaimer div[data-investor-type=" +
+            investor_type +
+            "]"
+        );
+        if (div.length) div.removeClass("hidden");
+    }
+
+    function checkRedirect() {
+        // const region = getCookie("region");
+        const investor_type = getCookie("investor_type");
+
+        // if (Boolean(region) && Boolean(investor_type)) {
+        if (Boolean(investor_type)) {
+            const pathAndQuery = window.location.pathname + window.location.search;
+
+            if (
+                window.location.hostname === arcus_main_site &&
+                region !== "rest-of-the-world"
+            )
+                return window.location.replace(
+                    "https://" + arcus_pro_site + pathAndQuery
+                );
+
+            if (
+                window.location.hostname === arcus_pro_site &&
+                region === "rest-of-the-world"
+            )
+                return window.location.replace(
+                    "https://" + arcus_main_site + pathAndQuery
+                );
+        }
+    }
+});

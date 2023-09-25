@@ -11,11 +11,10 @@ $(document).ready(function() {
     // checkRedirect();
     if (checkCookie() == true) {
         console.log("cookie exists");
-        $("#consent_popup").hide();
         $(".#consent_popup").fadeOut();
     }
     else {
-        
+        console.log("cookie does not exist");
         $("#consent_popup .continue").prop("disabled", true);
         $("#seek_advice").hide();
         $("#disclaimer-container").hide();

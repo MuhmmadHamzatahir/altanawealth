@@ -5,14 +5,11 @@ function getCookie(name) {
 }
 
 $(document).ready(function() {
-    const altanawealth_main_site = "altanawealth.com";
-    const altanawealth_pro_site = "www.altanawealth.com";
+    const altanawealth_domain = "altanawealth.com";
 
-    // checkRedirect();
     if (checkCookie() == true) {
         console.log("cookie exists");
         $("#consent_popup").hide();
-        // $("#consent_popup").fadeOut();
     }
     else {
         console.log("cookie does not exist");
@@ -82,7 +79,7 @@ $(document).ready(function() {
 
         const expires = "expires=" + d.toUTCString();
         const path = "path=/";
-        const domain = "domain=" + altanawealth_main_site;
+        const domain = "domain=" + altanawealth_domain;
 
         document.cookie = ["consent-disclaimer=true", expires, path, domain].join(
             ";"
@@ -142,11 +139,11 @@ $(document).ready(function() {
             const pathAndQuery = window.location.pathname + window.location.search;
 
             if (
-                window.location.hostname === altanawealth_main_site &&
+                window.location.hostname === altanawealth_domain &&
                 region !== "rest-of-the-world"
             )
                 return window.location.replace(
-                    "https://" + altanawealth_pro_site + pathAndQuery
+                    "https://www." + altanawealth_domain + pathAndQuery
                 );
 
             // if (

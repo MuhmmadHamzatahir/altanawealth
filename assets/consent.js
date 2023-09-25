@@ -10,7 +10,7 @@ $(document).ready(function() {
     if (checkCookie() == true) {
         console.log("cookie exists");
         $("#consent_popup").hide();
-        $("#consent_popup").fadeOut();
+        // $("#consent_popup").fadeOut();
         
     }
     else {

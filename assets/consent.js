@@ -10,8 +10,6 @@ $(document).ready(function() {
     if (checkCookie() == true) {
         console.log("cookie exists");
         $("#consent_popup").hide();
-        // $("#consent_popup").fadeOut();
-        
     }
     else {
         console.log("cookie does not exist");
@@ -72,10 +70,9 @@ $(document).ready(function() {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        // const region = $("#consent_popup #country-select").find(":selected").val();
         const region = 'united-kingdom';
         const d = new Date();
-        d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
+        d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
 
         const expires = "expires=" + d.toUTCString();
         const path = "path=/";

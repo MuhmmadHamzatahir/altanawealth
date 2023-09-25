@@ -10,6 +10,7 @@ $(document).ready(function() {
     if (checkCookie() == true) {
         console.log("cookie exists");
         $("#consent_popup").hide();
+        $("#consent_popup").remove();
     }
     else {
         console.log("cookie does not exist");
@@ -17,9 +18,6 @@ $(document).ready(function() {
         $("#seek_advice").hide();
         $("#disclaimer-container").hide();
 
-        $("#consent_popup #country-select").on("change", function () {
-            setDislaimer();
-        });
 
         $("#disclaimer-container").bind("scroll", function () {
             const disclaimerContainer = document.getElementById("disclaimer-container");
@@ -101,7 +99,6 @@ $(document).ready(function() {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        // const region = $("#consent_popup #country-select").find(":selected").val();
         const region = 'united-kingdom';
 
         $("#consent_popup .disclaimer").children().addClass("hidden");

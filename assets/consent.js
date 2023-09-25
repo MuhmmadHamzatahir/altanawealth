@@ -5,8 +5,8 @@ function getCookie(name) {
 }
 
 $(document).ready(function() {
-    const arcus_main_site = "altanawealth.com";
-    const arcus_pro_site = "www.altanawealth.com";
+    const altanawealth_main_site = "altanawealth.com";
+    const altanawealth_pro_site = "www.altanawealth.com";
 
     checkRedirect();
 
@@ -68,13 +68,14 @@ $(document).ready(function() {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        const region = $("#consent_popup #country-select").find(":selected").val();
+        // const region = $("#consent_popup #country-select").find(":selected").val();
+        const region = 'united-kingdom';
         const d = new Date();
         d.setTime(d.getTime() + 365 * 24 * 60 * 60 * 1000);
 
         const expires = "expires=" + d.toUTCString();
         const path = "path=/";
-        const domain = "domain=" + arcus_main_site;
+        const domain = "domain=" + altanawealth_main_site;
 
         document.cookie = ["consent-disclaimer=true", expires, path, domain].join(
             ";"
@@ -96,7 +97,8 @@ $(document).ready(function() {
         const investor_type = $(
             "#consent_popup input[type=radio][name=investor_type]:checked"
         ).val();
-        const region = $("#consent_popup #country-select").find(":selected").val();
+        // const region = $("#consent_popup #country-select").find(":selected").val();
+        const region = 'united-kingdom';
 
         $("#consent_popup .disclaimer").children().addClass("hidden");
         const div = $(
@@ -116,21 +118,21 @@ $(document).ready(function() {
         if (Boolean(region) && Boolean(investor_type)) {
             const pathAndQuery = window.location.pathname + window.location.search;
 
-            if (
-                window.location.hostname === arcus_main_site &&
-                region !== "rest-of-the-world"
-            )
-                return window.location.replace(
-                    "https://" + arcus_pro_site + pathAndQuery
-                );
+            // if (
+            //     window.location.hostname === altanawealth_main_site &&
+            //     region !== "rest-of-the-world"
+            // )
+            return window.location.replace(
+                "https://" + altanawealth_pro_site + pathAndQuery
+            );
 
-            if (
-                window.location.hostname === arcus_pro_site &&
-                region === "rest-of-the-world"
-            )
-                return window.location.replace(
-                    "https://" + arcus_main_site + pathAndQuery
-                );
+            // if (
+            //     window.location.hostname === altanawealth_pro_site &&
+            //     region === "rest-of-the-world"
+            // )
+            //     return window.location.replace(
+            //         "https://" + arcus_main_site + pathAndQuery
+            //     );
         }
     }
 });

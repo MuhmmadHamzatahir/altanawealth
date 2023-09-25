@@ -72,7 +72,7 @@ $(document).ready(function() {
         ).val();
         const region = 'united-kingdom';
         const d = new Date();
-        d.setTime(d.getTime() + 30 * 24 * 60 * 60 * 1000);
+        d.setTime(d.getTime() + 90 * 24 * 60 * 60 * 1000);
 
         const expires = "expires=" + d.toUTCString();
         const path = "path=/";

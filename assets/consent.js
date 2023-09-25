@@ -11,8 +11,8 @@ $(document).ready(function() {
     // checkRedirect();
     if (checkCookie() == true) {
         console.log("cookie exists");
-        // $("#consent_popup").hide();
-        $("#consent_popup").fadeOut();
+        $("#consent_popup").hide();
+        // $("#consent_popup").fadeOut();
     }
     else {
         console.log("cookie does not exist");

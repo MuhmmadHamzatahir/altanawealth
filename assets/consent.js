@@ -10,7 +10,13 @@ $(document).ready(function() {
     if (checkCookie() == true) {
         console.log("cookie exists");
         $("#consent_popup").hide();
-        $("#consent_popup").remove();
+        $("#consent_popup").fadeOut();
+        setTimeout(function () {
+            $(".modal-backdrop").hide();
+            $("body").removeClass("modal-open");
+            $("body").css("padding-right", "");
+            $("html").removeClass("hidden-class");
+        }, 1000);
     }
     else {
         console.log("cookie does not exist");

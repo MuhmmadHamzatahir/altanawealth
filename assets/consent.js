@@ -8,61 +8,68 @@ $(document).ready(function() {
     const altanawealth_main_site = "altanawealth.com";
     const altanawealth_pro_site = "www.altanawealth.com";
 
-    checkRedirect();
+    // checkRedirect();
+    if (checkCookie() == true) {
+        console.log("cookie exists");
+        $("#consent_popup").hide();
+        $(".#consent_popup").fadeOut();
+    }
+    else {
+        
+        $("#consent_popup .continue").prop("disabled", true);
+        $("#seek_advice").hide();
+        $("#disclaimer-container").hide();
 
-    $("#consent_popup .continue").prop("disabled", true);
-    $("#seek_advice").hide();
-    $("#disclaimer-container").hide();
-
-    $("#consent_popup #country-select").on("change", function () {
-        setDislaimer();
-    });
-
-    $("#disclaimer-container").bind("scroll", function () {
-        const disclaimerContainer = document.getElementById("disclaimer-container");
-
-        if (
-            Math.ceil(
-                disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
-            ) === disclaimerContainer.clientHeight &&
-            $("#consent_popup .continue").prop("disabled") === true
-        ) {
-            $("#consent_popup .continue").prop("disabled", false);
-        }
-    });
-
-    $("#consent_popup input[type=radio][name=investor_type]").on(
-        "change",
-        function () {
-            const investor_type = $(
-                "#consent_popup input[type=radio][name=investor_type]:checked"
-            ).val();
-
-            if (investor_type === "non-professional") {
-                $("#seek_advice").show();
-                $("#disclaimer-container").hide();
-            } else {
-                $("#seek_advice").hide();
-                $("#disclaimer-container").show();
-            }
-
+        $("#consent_popup #country-select").on("change", function () {
             setDislaimer();
-        }
-    );
+        });
 
-    $("#consent_popup .continue").on("click", function () {
-        setCookie();
+        $("#disclaimer-container").bind("scroll", function () {
+            const disclaimerContainer = document.getElementById("disclaimer-container");
 
-        checkRedirect();
+            if (
+                Math.ceil(
+                    disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
+                ) === disclaimerContainer.clientHeight &&
+                $("#consent_popup .continue").prop("disabled") === true
+            ) {
+                $("#consent_popup .continue").prop("disabled", false);
+            }
+        });
 
-        $("#consent_popup").fadeOut();
-        setTimeout(function () {
-            $(".modal-backdrop").hide();
-            $("body").removeClass("modal-open");
-            $("body").css("padding-right", "");
-            $("html").removeClass("hidden-class");
-        }, 1000);
-    });
+        $("#consent_popup input[type=radio][name=investor_type]").on(
+            "change",
+            function () {
+                const investor_type = $(
+                    "#consent_popup input[type=radio][name=investor_type]:checked"
+                ).val();
+
+                if (investor_type === "non-professional") {
+                    $("#seek_advice").show();
+                    $("#disclaimer-container").hide();
+                } else {
+                    $("#seek_advice").hide();
+                    $("#disclaimer-container").show();
+                }
+
+                setDislaimer();
+            }
+        );
+
+        $("#consent_popup .continue").on("click", function () {
+            setCookie();
+
+            checkRedirect();
+
+            $("#consent_popup").fadeOut();
+            setTimeout(function () {
+                $(".modal-backdrop").hide();
+                $("body").removeClass("modal-open");
+                $("body").css("padding-right", "");
+                $("html").removeClass("hidden-class");
+            }, 1000);
+        });
+    }
 
     function setCookie() {
         const investor_type = $(
@@ -109,6 +116,20 @@ $(document).ready(function() {
             "]"
         );
         if (div.length) div.removeClass("hidden");
+    }
+
+    function checkCookie() {
+        const region = getCookie("region");
+        const investor_type = getCookie("investor_type");
+        console.log(region, investor_type);
+        console.log(window.location.hostname);
+
+        if (Boolean(region) && Boolean(investor_type)) {
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     function checkRedirect() {

@@ -20,6 +20,7 @@ $(document).ready(function() {
     }
     else {
         console.log("cookie does not exist");
+        $("#consent_popup").show();
         $("#consent_popup .continue").prop("disabled", true);
         $("#seek_advice").hide();
         $("#disclaimer-container").hide();

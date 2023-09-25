@@ -114,6 +114,8 @@ $(document).ready(function() {
     function checkRedirect() {
         const region = getCookie("region");
         const investor_type = getCookie("investor_type");
+        console.log(region, investor_type);
+        console.log(window.location.hostname);
 
         if (Boolean(region) && Boolean(investor_type)) {
             const pathAndQuery = window.location.pathname + window.location.search;

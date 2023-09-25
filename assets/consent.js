@@ -118,13 +118,13 @@ $(document).ready(function() {
         if (Boolean(region) && Boolean(investor_type)) {
             const pathAndQuery = window.location.pathname + window.location.search;
 
-            // if (
-            //     window.location.hostname === altanawealth_main_site &&
-            //     region !== "rest-of-the-world"
-            // )
-            return window.location.replace(
-                "https://" + altanawealth_pro_site + pathAndQuery
-            );
+            if (
+                window.location.hostname === altanawealth_main_site &&
+                region !== "rest-of-the-world"
+            )
+                return window.location.replace(
+                    "https://" + altanawealth_pro_site + pathAndQuery
+                );
 
             // if (
             //     window.location.hostname === altanawealth_pro_site &&

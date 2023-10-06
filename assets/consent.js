@@ -21,6 +21,10 @@ $(document).ready(function() {
 
         $("#disclaimer-container").bind("scroll", function () {
             const disclaimerContainer = document.getElementById("disclaimer-container");
+            const consent_popup = document.getElementById("consent_popup");
+
+            console.log(consent_popup.scrollHeight);
+            console.log(consent_popup.scrollTop);   
             
             console.log(disclaimerContainer.scrollHeight);
             console.log(disclaimerContainer.scrollTop);

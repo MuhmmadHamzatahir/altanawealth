@@ -21,18 +21,14 @@ $(document).ready(function() {
 
         $("#disclaimer-container").bind("scroll", function () {
             const disclaimerContainer = document.getElementById("disclaimer-container");
-            const consent_popup = document.getElementById("consent_popup");
-
-            console.log(consent_popup.scrollHeight);
-            console.log(consent_popup.scrollTop);   
-
+            
             console.log(disclaimerContainer.scrollHeight);
             console.log(disclaimerContainer.scrollTop);
             console.log(disclaimerContainer.clientHeight);
 
             if (
                 Math.ceil(
-                    consent_popup.scrollHeight - disclaimerContainer.scrollTop
+                    disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
                 ) >= disclaimerContainer.clientHeight &&
                 $("#consent_popup .continue").prop("disabled") === true
             ) {

@@ -28,8 +28,8 @@ $(document).ready(function() {
 
             if (
                 Math.ceil(
-                    disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
-                ) >= disclaimerContainer.clientHeight &&
+                    disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop - disclaimerContainer.clientHeight
+                ) < 10 &&
                 $("#consent_popup .continue").prop("disabled") === true
             ) {
                 console.log("scrolled to bottom");

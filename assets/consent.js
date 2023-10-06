@@ -25,15 +25,15 @@ $(document).ready(function() {
 
             console.log(consent_popup.scrollHeight);
             console.log(consent_popup.scrollTop);   
-            
+
             console.log(disclaimerContainer.scrollHeight);
             console.log(disclaimerContainer.scrollTop);
             console.log(disclaimerContainer.clientHeight);
 
             if (
                 Math.ceil(
-                    disclaimerContainer.scrollHeight - disclaimerContainer.scrollTop
-                ) === disclaimerContainer.clientHeight &&
+                    consent_popup.scrollHeight - disclaimerContainer.scrollTop
+                ) >= disclaimerContainer.clientHeight &&
                 $("#consent_popup .continue").prop("disabled") === true
             ) {
                 console.log("scrolled to bottom");

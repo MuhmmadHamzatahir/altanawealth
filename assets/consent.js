@@ -21,6 +21,10 @@ $(document).ready(function() {
 
         $("#disclaimer-container").bind("scroll", function () {
             const disclaimerContainer = document.getElementById("disclaimer-container");
+            
+            console.log(disclaimerContainer.scrollHeight);
+            console.log(disclaimerContainer.scrollTop);
+            console.log(disclaimerContainer.clientHeight);
 
             if (
                 Math.ceil(
@@ -28,8 +32,10 @@ $(document).ready(function() {
                 ) === disclaimerContainer.clientHeight &&
                 $("#consent_popup .continue").prop("disabled") === true
             ) {
+                console.log("scrolled to bottom");
                 $("#consent_popup .continue").prop("disabled", false);
             }
+            
         });
 
         $("#consent_popup input[type=radio][name=investor_type]").on(

@@ -122,8 +122,12 @@ $(document).ready(function() {
         const investor_type = getCookie("investor_type");
         console.log(region, investor_type);
         console.log(window.location.hostname);
+        console.log(window.location.pathname);
 
         if (Boolean(region) && Boolean(investor_type)) {
+            return true;
+        }
+        else if(window.location.pathname == '/careers') {
             return true;
         }
         else {

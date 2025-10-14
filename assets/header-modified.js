@@ -1,14 +1,20 @@
+// header-modified.js - optimized version
 (function(altana, undefined) {
-    var pagesModifiedHeader = ['home', 'home-new']; // Simpler array structure
+    'use strict';
+    
+    var pagesModifiedHeader = ['home', 'home-new'];
     
     function addModifiedHeaderIfRequired() {
-        var pathname = window.location.pathname;
-        var pageName = pathname.split('/').filter(Boolean).pop() || 'home';
-        
+        var pageName = window.location.pathname.split('/').pop() || 'home';
         if (pagesModifiedHeader.includes(pageName)) {
-            document.body.classList.add("header-modified");
+            document.body.classList.add('header-modified');
         }
-    };
+    }
     
-    window.addEventListener('DOMContentLoaded', addModifiedHeaderIfRequired);
+    // Wait for load instead of DOMContentLoaded
+    if (document.readyState === 'loading') {
+        window.addEventListener('load', addModifiedHeaderIfRequired);
+    } else {
+        addModifiedHeaderIfRequired();
+    }
 })(window.altana = window.altana || {});

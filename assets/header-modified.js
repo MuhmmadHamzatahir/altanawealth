@@ -1,29 +1,14 @@
 (function(altana, undefined) {
-    var pagesModifiedHeader = [{
-        pageName: "home"
-    }, {
-        pageName: "home-new"
-    }];
-
+    var pagesModifiedHeader = ['home', 'home-new']; // Simpler array structure
+    
     function addModifiedHeaderIfRequired() {
-        // get name of page
-        var thisPage = window.location.pathname.split('/').slice(-1)[0];
-
-        // test if page exists in pagesModifiedHeader array
-        // NOT WORK IN INTERNET EXPLORER    var result = pagesModifiedHeader.filter(x => x.pageName === thisPage).length;
-        var result = pagesModifiedHeader.filter(function(x) {
-            return x.pageName === thisPage;
-        }.length);
-
-        if (result != 0) {
-            document.getElementsByTagName("BODY")[0].classList.add("header-modified");
-        } else {
-            // alert("Page DOES NOT requires disclaimer to be accepted");
+        var pathname = window.location.pathname;
+        var pageName = pathname.split('/').filter(Boolean).pop() || 'home';
+        
+        if (pagesModifiedHeader.includes(pageName)) {
+            document.body.classList.add("header-modified");
         }
     };
-    window.addEventListener('DOMContentLoaded', function() {
-        //  addModifiedHeaderIfRequired()
-        // No have on all pages
-        document.getElementsByTagName("BODY")[0].classList.add("header-modified");
-    });
+    
+    window.addEventListener('DOMContentLoaded', addModifiedHeaderIfRequired);
 })(window.altana = window.altana || {});

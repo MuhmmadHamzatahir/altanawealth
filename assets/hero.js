@@ -1,10 +1,10 @@
 (function(altana, undefined) {
     preloadImages([
-        '/assets/main-lighthouse-16x9-01.jpg',
-        '/assets/main-lighthouse-16x9-alt-01.jpg',
-        '/assets/main-beach-16x9-01.jpg',
-        '/assets/main-lightning-alt-16x9-01.jpg',
-        '/assets/main-greenhand-16x9-alt-less-green-01.jpg'
+        '/assets/main-lighthouse-16x9-01.webp',
+        '/assets/main-lighthouse-16x9-alt-01.webp',
+        '/assets/main-beach-16x9-01.webp',
+        '/assets/main-lightning-alt-16x9-01.webp',
+        '/assets/main-greenhand-16x9-alt-less-green-01.webp'
     ], function() {
         //    console.log('All images were loaded');
     });
@@ -75,4 +75,5 @@
             img.src = url;
         }
     }
+
 })(window.altana = window.altana || {});

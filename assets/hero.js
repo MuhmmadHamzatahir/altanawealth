@@ -1,69 +1,80 @@
+
 (function(altana, undefined) {
-  const imageUrls = [
-    '/assets/main-lighthouse-16x9-01.webp',
-    '/assets/main-lighthouse-16x9-alt-01.webp',
-    '/assets/main-beach-16x9-01.webp',
-    '/assets/main-lightning-alt-16x9-01.webp',
-    '/assets/main-greenhand-16x9-alt-less-green-01.webp'
-  ];
+    preloadImages([
+        '/assets/main-lighthouse-16x9-01.webp',
+        '/assets/main-lighthouse-16x9-alt-01.webp',
+        '/assets/main-beach-16x9-01.webp',
+        '/assets/main-lightning-alt-16x9-01.webp',
+        '/assets/main-greenhand-16x9-alt-less-green-01.webp'
+    ], function() {
+        //    console.log('All images were loaded');
+    });
 
-  // ⚡ Efficient preloading using Promises
-  function preloadImages(urls) {
-    return Promise.all(
-      urls.map(url => 
-        new Promise(resolve => {
-          const img = new Image();
-          img.onload = resolve;
-          img.onerror = resolve;
-          img.src = url;
-        })
-      )
-    );
-  }
+    var loop = 0;
+    var bodyID;
+    var strap2ID;
 
-  let loop = 0;
-  let body, strap2;
-  const heroClasses = ['hero01', 'hero02', 'hero03', 'hero04'];
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    body = document.body;
-    const parallaxImg = document.querySelector(".Parallax-host-outer .Parallax-item img");
-    if (parallaxImg) parallaxImg.classList.add("back-image");
+    window.addEventListener('DOMContentLoaded', function() {
+        bodyID = document.getElementsByTagName("BODY")[0];
+        document.getElementsByClassName("Parallax-host-outer")[0].getElementsByClassName("Parallax-item")[0].getElementsByTagName("IMG")[0].classList.add("back-image");
 
-    body.classList.add("header-modified", "landing-page", "hero01");
-    strap2 = document.getElementById("hero-strap2");
+        bodyID.classList.add("header-modified");
+        bodyID.classList.add("landing-page");
+        bodyID.classList.add("hero01");
 
-    // Preload all images before starting the loop
-    await preloadImages(imageUrls);
-    startHeroLoop();
-  }, { passive: true });
+        strap2ID = document.getElementById("hero-strap2");
 
-  function startHeroLoop() {
-    let lastTime = 0;
-    const interval = 5000; // 5 seconds per loop
+        loopStyling();
+        setInterval(loopStyling, 5000);
+    });
 
-    function update(timestamp) {
-      if (timestamp - lastTime > interval) {
-        updateHero();
-        lastTime = timestamp;
-      }
-      requestAnimationFrame(update);
+    function loopStyling() {
+
+        var elm = strap2ID;
+        var newone = elm.cloneNode(true);
+        elm.parentNode.replaceChild(newone, elm);
+        strap2ID = newone;
+
+        switch (loop) {
+            case 0:
+                bodyID.classList.remove("hero04");
+                bodyID.classList.add("hero01");
+                break;
+            case 1:
+                bodyID.classList.remove("hero01");
+                bodyID.classList.add("hero02");
+                break;
+            case 2:
+                bodyID.classList.remove("hero02");
+                bodyID.classList.add("hero03");
+                break;
+            case 3:
+                bodyID.classList.remove("hero03");
+                bodyID.classList.add("hero04");
+                break;
+        }
+        loop = (loop + 1) % 4;
     }
-    requestAnimationFrame(update);
-  }
 
-  function updateHero() {
-    if (!body || !strap2) return;
+    function preloadImages(urls, allImagesLoadedCallback) {
+        var loadedCounter = 0;
+        var toBeLoadedNumber = urls.length;
+        urls.forEach(function(url) {
+            preloadImage(url, function() {
+                loadedCounter++;
+                //            console.log('Number of loaded images: ' + loadedCounter);
+                if (loadedCounter == toBeLoadedNumber) {
+                    allImagesLoadedCallback();
+                }
+            });
+        });
 
-    // Replace strap element to trigger animation reset
-    const newStrap = strap2.cloneNode(true);
-    strap2.parentNode.replaceChild(newStrap, strap2);
-    strap2 = newStrap;
-
-    // Cycle through hero classes
-    body.classList.remove(...heroClasses);
-    body.classList.add(heroClasses[loop]);
-    loop = (loop + 1) % heroClasses.length;
-  }
+        function preloadImage(url, anImageLoadedCallback) {
+            var img = new Image();
+            img.onload = anImageLoadedCallback;
+            img.src = url;
+        }
+    }
 
 })(window.altana = window.altana || {});

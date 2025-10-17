@@ -18,3 +18,4 @@
         addModifiedHeaderIfRequired();
     }
 })(window.altana = window.altana || {});
+
